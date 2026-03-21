@@ -57,22 +57,23 @@ html, body {
 
 /* ── SLIDE CONTENT CONTAINER ── */
 .slide-content {
-  flex: 1; display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(16px, 2.5vh, 50px) clamp(24px, 3vw, 80px);
+  flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: clamp(32px, 4vh, 80px) clamp(40px, 5vw, 120px);
   position: relative; z-index: 2;
   overflow-y: auto; overflow-x: hidden;
   min-height: 0;
 }
+.slide-content > * { width: 100%; }
 .slide-content::-webkit-scrollbar { width: 0; }
 .slide-content-row {
-  flex: 1; display: flex;
-  padding: clamp(16px, 2.5vh, 50px) clamp(24px, 3vw, 80px);
+  flex: 1; display: flex; align-items: center;
+  padding: clamp(32px, 4vh, 80px) clamp(40px, 5vw, 120px);
   position: relative; z-index: 2;
   overflow: hidden; min-height: 0;
 }
 .slide-split-left {
   width: 55%; display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(16px, 2vh, 52px) clamp(16px, 2vw, 48px);
+  padding: clamp(32px, 4vh, 80px) clamp(32px, 4vw, 80px);
   position: relative; z-index: 2;
   overflow-y: auto; overflow-x: hidden; min-height: 0;
 }
@@ -681,7 +682,6 @@ html, body {
 
     <!-- Left content -->
     <div class="slide-split-left">
-      <div class="neon-line" data-a="left" data-d="0"></div>
       <div class="eyebrow" data-a="left" data-d="0">The Athlete</div>
       <div class="h1" data-a="left" data-d="1">MEET<br><span>CROCKETT</span></div>
 
@@ -753,7 +753,7 @@ html, body {
         font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,16.7vw,320px);line-height:1;
         color:transparent;-webkit-text-stroke:1px rgba(233,252,15,0.08);letter-spacing:-5px;">131</div>
       <!-- Rider photo -->
-      <img src="Photos/CM-02.png" alt="Crockett Myers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:3;" />
+      <img src="Photos/CM-05.png" alt="Crockett Myers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:3;" />
       <!-- Bottom gradient info -->
       <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 32px;
         background:linear-gradient(to top,rgba(6,6,6,0.95) 0%,transparent 100%);z-index:5;">
@@ -769,7 +769,7 @@ html, body {
 
     <!-- Background photo -->
     <div style="position:absolute;right:0;top:0;width:40%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
-      <img src="Photos/CM-05.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.12;" />
+      <img src="Photos/CM-02.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.12;" />
     </div>
 
     <!-- Subtle radial glow -->
@@ -777,7 +777,6 @@ html, body {
 
     <div class="slide-content">
 
-      <div class="neon-line" data-a="left" data-d="0"></div>
       <div class="eyebrow" data-a="left" data-d="0">The Opportunity</div>
       <div class="h1" data-a="left" data-d="1" style="font-size:clamp(34px,3.5vw,68px);">WHY <span>CROCKETT?</span></div>
 
@@ -869,7 +868,6 @@ html, body {
     <div class="carbon-bg"></div>
 
     <div class="slide-content">
-      <div class="neon-line" data-a="left" data-d="0"></div>
       <div class="eyebrow" data-a="left" data-d="0">2026 Supercross &bull; 250SX West &bull; Suzuki RM-Z250</div>
       <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">2026 <span>RESULTS</span></div>
 
@@ -978,7 +976,6 @@ html, body {
     <div class="carbon-bg"></div>
 
     <div class="slide-content">
-      <div class="neon-line" data-a="left" data-d="0"></div>
       <div class="eyebrow" data-a="left" data-d="0">Career Results</div>
       <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">PRO <span>TRACK RECORD</span></div>
 
@@ -1097,12 +1094,11 @@ html, body {
 
     <!-- Background photo -->
     <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
-      <img src="Photos/CM-06.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.07;" />
+      <img src="Photos/CM-06.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.07;" />
       <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.8) 50%, rgba(6,6,6,0.95) 100%);"></div>
     </div>
 
     <div class="slide-content">
-      <div class="neon-line" data-a="left" data-d="0"></div>
       <div class="eyebrow" data-a="left" data-d="0">Media Exposure</div>
       <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">BROADCAST <span>&amp; REACH</span></div>
 
@@ -1265,7 +1261,6 @@ html, body {
     <div class="carbon-bg"></div>
 
     <div class="slide-content">
-      <div class="neon-line" data-a="left" data-d="0"></div>
       <div class="eyebrow" data-a="left" data-d="0">Side-by-Side</div>
       <div class="h1" data-a="left" data-d="1" style="font-size:clamp(28px,2.9vw,56px);">TIER <span>COMPARISON</span></div>
 
@@ -1439,7 +1434,6 @@ html, body {
     <div class="carbon-bg"></div>
 
     <div class="slide-content">
-      <div class="neon-line" data-a="left" data-d="0"></div>
       <div class="eyebrow" data-a="left" data-d="0">Sponsor Activation</div>
       <div class="h1" data-a="left" data-d="1" style="font-size:clamp(30px,3.1vw,60px);">WHAT YOU <span>GET</span></div>
 
@@ -1491,7 +1485,7 @@ html, body {
 
     <!-- Background photo -->
     <div style="position:absolute;right:0;top:0;width:55%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
-      <img src="Photos/CM-07.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.1;" />
+      <img src="Photos/CM-07.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.1;" />
       <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(6,6,6,1) 0%, rgba(6,6,6,0.7) 40%, rgba(6,6,6,0.5) 100%);"></div>
     </div>
 
@@ -1535,7 +1529,7 @@ html, body {
     </div>
 
     <!-- Right side - contact cards -->
-    <div style="width:clamp(280px,25vw,480px);display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.2vh,16px);padding:clamp(16px,2.5vh,80px) clamp(16px,2.5vh,80px) clamp(16px,2.5vh,80px) 0;position:relative;z-index:2;overflow-y:auto;min-height:0;">
+    <div style="width:clamp(280px,25vw,480px);display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.2vh,16px);padding:clamp(32px,4vh,80px) clamp(32px,4vw,80px) clamp(32px,4vh,80px) 0;position:relative;z-index:2;overflow-y:auto;min-height:0;">
       <!-- Contact card -->
       <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;
         background:var(--dark2);border:1px solid var(--card-border);
