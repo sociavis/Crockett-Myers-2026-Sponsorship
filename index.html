@@ -66,13 +66,6 @@ html, body {
 }
 .slide-content > * { width: 100%; max-width: 100%; flex-shrink: 0; }
 #s1 > .slide-content { justify-content: center; }
-#s3 > .slide-content {
-  justify-content: space-between !important;
-  overflow: hidden !important;
-  height: 100% !important;
-}
-#s3 > .slide-content > * { flex-shrink: 1 !important; }
-#s3 > .slide-content > .s3-cards { flex-grow: 1 !important; }
 .slide-content::-webkit-scrollbar { width: 0; }
 .slide-content-row {
   flex: 1; display: flex; align-items: center;
@@ -865,15 +858,12 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
       <div style="position:absolute;top:-10%;right:32%;width:2px;height:120%;background:linear-gradient(to bottom, transparent, rgba(233,252,15,0.15), rgba(233,252,15,0.03), transparent);transform:rotate(15deg);"></div>
     </div>
 
-    <div class="slide-content" style="z-index:2;">
+    <div style="position:absolute;inset:0;z-index:2;display:grid;grid-template-rows:auto auto auto 1fr 1fr auto auto;padding:clamp(36px,5vh,72px) clamp(32px,4vw,100px) clamp(24px,3vh,48px);gap:clamp(8px,1vh,14px);">
       <div class="eyebrow" data-a="left" data-d="0">The Opportunity</div>
-      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);margin-bottom:clamp(4px,0.8vh,12px);">WHY CROCKETT &mdash; <span>WHAT YOU GET</span></div>
-      <div style="font-family:'Barlow',sans-serif;font-size:clamp(12px,0.78vw,14px);font-weight:300;color:rgba(255,255,255,0.45);line-height:1.5;margin-bottom:clamp(12px,2vh,24px);max-width:600px;" data-a="fade" data-d="2">
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">WHY CROCKETT &mdash; <span>WHAT YOU GET</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:clamp(12px,0.78vw,14px);font-weight:300;color:rgba(255,255,255,0.45);line-height:1.5;max-width:600px;" data-a="fade" data-d="2">
         One of the most compelling, high-visibility marketing opportunities in professional motocross. Here's exactly what your partnership delivers.
       </div>
-
-      <!-- Card rows wrapper -->
-      <div class="s3-cards">
 
       <!-- Row 1: Hero card (2-wide) + one regular -->
       <div style="display:grid;grid-template-columns:2fr 1fr;gap:clamp(8px,0.8vw,14px);" data-a="up" data-d="3">
@@ -946,12 +936,9 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
             <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.72vw,14px);color:rgba(255,255,255,0.5);line-height:1.55;">Fans rally behind the underdog. Crockett's journey from Texas privateer to Main Event regular generates organic engagement that factory-backed riders can't deliver. Early sponsors ride the growth curve &mdash; better placement, deeper relationships, and the story of being there from the beginning.</div>
           </div>
         </div>
-      </div>
-
-      </div>
 
       <!-- Credibility strip -->
-      <div style="margin-top:clamp(12px,2vh,24px);" data-a="fade" data-d="6">
+      <div data-a="fade" data-d="6">
         <div style="height:1px;background:linear-gradient(to right, rgba(233,252,15,0.3), rgba(233,252,15,0.08), rgba(255,255,255,0.04));margin-bottom:clamp(10px,1.5vh,18px);"></div>
         <div style="display:flex;align-items:center;justify-content:space-between;">
           <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,22px);letter-spacing:clamp(2px,0.3vw,6px);color:rgba(255,255,255,0.3);">
