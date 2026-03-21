@@ -942,237 +942,229 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
     </div>
   </div>
 
-  <!-- ██████████████████████  SLIDE 4 — 2026 SX RESULTS  ██████████████████████ -->
-  <div class="slide" id="s4" style="flex-direction:column;">
+  <!-- ██████████████████████  SLIDE 4 — 2026 CURRENT SEASON  ██████████████████████ -->
+  <div class="slide" id="s4" style="flex-direction:row;">
     <div class="neon-stripe"></div>
     <div class="carbon-bg"></div>
 
-    <div class="slide-content">
-      <div style="display:flex;align-items:center;gap:16px;" data-a="left" data-d="0">
-        <img src="logos/supercross-live-logo.png" alt="Monster Energy Supercross" style="height:36px;width:auto;" />
-        <div class="eyebrow" style="margin-bottom:0;">2026 Supercross &bull; 250SX West &bull; Suzuki RM-Z250</div>
-      </div>
-      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">2026 <span>RESULTS</span></div>
-
-      <div style="display:flex;gap:clamp(16px,2.5vw,40px);margin-top:clamp(4px,0.8vh,10px);">
-        <!-- Results table -->
-        <div style="flex:1;" data-a="fade" data-d="2">
-          <table class="results-table">
-            <thead>
-              <tr><th>Round</th><th>Venue</th><th>Location</th><th>Overall</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="sched-rd">RD 1</span></td>
-                <td>Angel Stadium</td>
-                <td class="sched-venue">Anaheim, CA</td>
-                <td class="result-best">17th</td>
-              </tr>
-              <tr>
-                <td><span class="sched-rd">RD 3</span></td>
-                <td>Angel Stadium</td>
-                <td class="sched-venue">Anaheim, CA</td>
-                <td class="result-best">13th</td>
-              </tr>
-              <tr>
-                <td><span class="sched-rd">RD 4</span></td>
-                <td>NRG Stadium</td>
-                <td class="sched-venue">Houston, TX</td>
-                <td>18th</td>
-              </tr>
-              <tr style="background:rgba(233,252,15,0.03);">
-                <td><span class="sched-rd">RD 5</span></td>
-                <td style="color:var(--white) !important;font-weight:600;">State Farm Stadium</td>
-                <td class="sched-venue">Glendale, AZ</td>
-                <td class="result-best" style="font-weight:700;">14th &#9733;</td>
-              </tr>
-              <tr>
-                <td><span class="sched-rd">RD 6</span></td>
-                <td>Lumen Field</td>
-                <td class="sched-venue">Seattle, WA</td>
-                <td>14th</td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gray);margin-top:clamp(6px,1vh,12px);text-transform:uppercase;">
-            &#9733; = First-ever direct transfer to main (no LCQ) &bull; Season in progress
-          </div>
-
-          <!-- 2025 SX East -->
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2025 SUPERCROSS &mdash; 250SX EAST &bull; KTM 250 SX-F</div>
-          <table class="results-table">
-            <thead>
-              <tr><th>Round</th><th>Venue</th><th>Location</th><th>Overall</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="sched-rd">RD 9</span></td>
-                <td>Protective Stadium</td>
-                <td class="sched-venue">Birmingham, AL</td>
-                <td>18th</td>
-              </tr>
-              <tr>
-                <td><span class="sched-rd">RD 11</span></td>
-                <td>Gillette Stadium</td>
-                <td class="sched-venue">Foxborough, MA</td>
-                <td class="result-best">16th</td>
-              </tr>
-            </tbody>
-          </table>
+    <!-- Left: Photo strip -->
+    <div style="width:38%;position:relative;overflow:hidden;" data-a="zoom" data-d="0">
+      <img src="Photos/CM-07.png" alt="Crockett Myers 2026" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, transparent 60%, var(--black) 100%);"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top, var(--black) 0%, transparent 50%);height:50%;"></div>
+      <!-- Floating stat badges over photo -->
+      <div style="position:absolute;bottom:clamp(24px,4vh,48px);left:clamp(20px,2vw,40px);display:flex;gap:12px;" data-a="up" data-d="4">
+        <div style="background:var(--neon);color:var(--black);padding:8px 16px;border-radius:2px;font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:1px;">
+          16TH IN POINTS
         </div>
+        <div style="background:rgba(0,0,0,0.7);border:1px solid var(--neon);color:var(--neon);padding:8px 16px;border-radius:2px;font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:1px;">
+          SEASON IN PROGRESS
+        </div>
+      </div>
+    </div>
 
-        <!-- Side stats -->
-        <div style="width:clamp(220px,16.7vw,320px);flex-shrink:0;display:flex;flex-direction:column;gap:clamp(8px,1vh,14px);">
-          <div style="background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.18);border-radius:4px;padding:clamp(12px,1.5vh,24px);" data-a="right" data-d="2">
-            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:clamp(4px,0.6vh,8px);">Breakout Moment</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.7vw,52px);color:var(--neon);line-height:1;letter-spacing:1px;">GLENDALE</div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(14px,0.9vw,18px);font-weight:600;color:var(--white);margin-top:4px;">First-Ever Direct Transfer</div>
-            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.45);margin-top:6px;line-height:1.45;">
-              9th in Heat Race for automatic main event qualification. 14th place finish collecting championship points.
+    <!-- Right: Content -->
+    <div class="slide-split-left" style="width:62%;padding-left:clamp(32px,3vw,60px);">
+      <div class="eyebrow" data-a="left" data-d="0">2026 Current Season</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(34px,3.5vw,68px);">THE <span>BREAKOUT</span></div>
+
+      <div style="font-family:'Barlow',sans-serif;font-size:clamp(13px,0.85vw,15px);font-weight:300;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:clamp(12px,2vh,24px);" data-a="fade" data-d="2">
+        Crockett has significantly improved his consistency in 2026, establishing himself as a regular Main Event contender in the highly competitive 250SX West class.
+      </div>
+
+      <!-- Team/Bike bar -->
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(12px,2vh,20px);" data-a="left" data-d="2">
+        <img src="logos/supercross-live-logo.png" alt="Supercross" style="height:24px;width:auto;" />
+        <div style="font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">
+          McGinley Clinic Privateer Support &bull; Suzuki RM-Z250 &bull; 250SX West
+        </div>
+      </div>
+
+      <!-- Big stat row -->
+      <div style="display:flex;gap:clamp(8px,1vw,16px);margin-bottom:clamp(12px,2vh,20px);" data-a="up" data-d="3">
+        <div class="stat-box" style="flex:1;">
+          <div class="stat-num">5/6</div>
+          <div class="stat-label">Mains Qualified</div>
+        </div>
+        <div class="stat-box" style="flex:1;">
+          <div class="stat-num">13th</div>
+          <div class="stat-label">Career Best</div>
+          <div class="stat-sub">Anaheim 2</div>
+        </div>
+        <div class="stat-box" style="flex:1;">
+          <div class="stat-num" style="font-size:clamp(18px,1.6vw,32px);">DIRECT</div>
+          <div class="stat-label">First Transfer</div>
+          <div class="stat-sub">Glendale &mdash; No LCQ</div>
+        </div>
+      </div>
+
+      <!-- Season Highlights as timeline -->
+      <div style="border-left:2px solid var(--neon);padding-left:clamp(14px,1.2vw,24px);display:flex;flex-direction:column;gap:clamp(10px,1.4vh,18px);" data-a="fade" data-d="4">
+        <div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(15px,1vw,20px);letter-spacing:1px;color:var(--white);">Glendale Supercross</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.7vw,13px);color:rgba(255,255,255,0.5);line-height:1.4;">First-ever direct transfer to a Main Event. 9th in Heat Race, 14th overall.</div>
+        </div>
+        <div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(15px,1vw,20px);letter-spacing:1px;color:var(--white);">Anaheim 2</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.7vw,13px);color:rgba(255,255,255,0.5);line-height:1.4;">Career-best 13th place finish in the 250SX West Main Event.</div>
+        </div>
+        <div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(15px,1vw,20px);letter-spacing:1px;color:var(--white);">Season Consistency</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.7vw,13px);color:rgba(255,255,255,0.5);line-height:1.4;">Qualified for 5 out of 6 Main Events &mdash; proving he belongs on the big stage.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 4B — 2025 SOPHOMORE SEASON  ██████████████████████ -->
+  <div class="slide" id="s4b" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <!-- Subtle background photo -->
+    <div style="position:absolute;right:0;top:0;width:45%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
+      <img src="Photos/CM-05.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.12;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--black) 0%, transparent 40%, transparent 60%, var(--black) 100%);"></div>
+    </div>
+
+    <div class="slide-content">
+      <div class="eyebrow" data-a="left" data-d="0">2025 Season</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(34px,3.5vw,68px);">SOPHOMORE <span>GROWTH</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:clamp(13px,0.85vw,15px);font-weight:300;color:rgba(255,255,255,0.55);line-height:1.6;max-width:680px;margin-bottom:clamp(14px,2.5vh,28px);" data-a="fade" data-d="2">
+        The 2025 season saw Myers expanding his program and gaining valuable experience across both Supercross and Motocross disciplines, riding for Dirt Bike Depot (DBD) Racing KTM.
+      </div>
+
+      <!-- Two-column card layout -->
+      <div style="display:flex;gap:clamp(16px,2vw,32px);" data-a="up" data-d="3">
+        <!-- Supercross card -->
+        <div style="flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;">
+          <div style="padding:clamp(14px,1.8vh,24px) clamp(16px,1.4vw,28px);border-bottom:1px solid rgba(233,252,15,0.1);">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+              <img src="logos/supercross-live-logo.png" alt="Supercross" style="height:20px;width:auto;" />
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);letter-spacing:2px;color:var(--neon);">250SX EAST</div>
+            </div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.7vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">
+              Competed for DBD Racing KTM. Focused on qualifying for night shows and building speed in his second professional year.
             </div>
           </div>
-
-          <div class="stat-box" data-a="up" data-d="3">
-            <div class="stat-num">13th</div>
-            <div class="stat-label">Best 2026 SX Finish</div>
-            <div class="stat-sub">Anaheim 2</div>
+          <div style="padding:clamp(14px,1.8vh,24px) clamp(16px,1.4vw,28px);">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin-bottom:8px;">Key Stats</div>
+            <div style="display:flex;gap:16px;">
+              <div style="text-align:center;">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,1.8vw,36px);color:var(--white);">2</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Rounds</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,1.8vw,36px);color:var(--neon);">16th</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Best Finish</div>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div class="stat-box" data-a="up" data-d="4">
-            <div class="stat-num">5</div>
-            <div class="stat-label">Main Events Made</div>
-            <div class="stat-sub">2026 250SX West</div>
+        <!-- Pro Motocross card -->
+        <div style="flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;">
+          <div style="padding:clamp(14px,1.8vh,24px) clamp(16px,1.4vw,28px);border-bottom:1px solid rgba(233,252,15,0.1);">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+              <img src="logos/pro-mx-championship.png" alt="Pro MX" style="height:18px;width:auto;" />
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);letter-spacing:2px;color:var(--neon);">PRO MOTOCROSS</div>
+            </div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.7vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">
+              Continued as a standout privateer, showing strong potential in the outdoor Nationals. Mic&rsquo;d up by Swapmoto Live during the outdoor season.
+            </div>
           </div>
+          <div style="padding:clamp(14px,1.8vh,24px) clamp(16px,1.4vw,28px);">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin-bottom:8px;">Key Stats</div>
+            <div style="display:flex;gap:16px;">
+              <div style="text-align:center;">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,1.8vw,36px);color:var(--white);">5</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Nationals</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,1.8vw,36px);color:var(--neon);">22nd</div>
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Best Finish</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <div style="background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.15);border-radius:4px;padding:clamp(10px,1.2vh,16px) clamp(12px,1vw,20px);" data-a="up" data-d="5">
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.18em;color:var(--neon);text-transform:uppercase;margin-bottom:4px;">TRAJECTORY: RISING</div>
-            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.45;">Improving results every round. Only Suzuki making mains &mdash; your brand grows with his ascent.</div>
+        <!-- Reputation card -->
+        <div style="flex:0.7;display:flex;flex-direction:column;gap:clamp(8px,1vh,16px);">
+          <div style="flex:1;background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.15);border-radius:6px;padding:clamp(14px,1.8vh,24px) clamp(16px,1.4vw,24px);display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin-bottom:8px;">Top Moment</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,1.6vw,32px);color:var(--neon);line-height:1.1;letter-spacing:1px;">REDBUD</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);color:var(--white);letter-spacing:1px;">22ND OVERALL</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.65vw,12px);color:rgba(255,255,255,0.45);margin-top:6px;line-height:1.4;">Best outdoor finish at the iconic Red Bud National.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:clamp(12px,1.5vh,20px) clamp(16px,1.4vw,24px);">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;color:var(--white);text-transform:uppercase;margin-bottom:4px;">
+              &#127908; Mic&rsquo;d Up by Swapmoto
+            </div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.65vw,12px);color:rgba(255,255,255,0.45);line-height:1.4;">
+              Highlighted for his positive personality and &ldquo;rad style&rdquo; on the bike.
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ██████████████████████  SLIDE 4B — CAREER RESULTS  ██████████████████████ -->
-  <div class="slide" id="s4b" style="flex-direction:column;">
+  <!-- ██████████████████████  SLIDE 4C — 2024 ROOKIE YEAR  ██████████████████████ -->
+  <div class="slide" id="s4c" style="flex-direction:column;">
     <div class="neon-stripe"></div>
     <div class="carbon-bg"></div>
 
     <div class="slide-content">
-      <div class="eyebrow" data-a="left" data-d="0">Career Results</div>
-      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">PRO <span>TRACK RECORD</span></div>
+      <div class="eyebrow" data-a="left" data-d="0">2024 Rookie Year</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(34px,3.5vw,68px);">MAKING A <span>NAME</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:clamp(13px,0.85vw,15px);font-weight:300;color:rgba(255,255,255,0.55);line-height:1.6;max-width:680px;margin-bottom:clamp(14px,2.5vh,28px);" data-a="fade" data-d="2">
+        Myers burst onto the professional scene in 2024, quickly making a name for himself in Arenacross, Supercross, and Pro Motocross all in the same year.
+      </div>
 
-      <div style="display:flex;gap:clamp(16px,2.5vw,40px);margin-top:clamp(4px,0.8vh,10px);">
-        <!-- Left column -->
-        <div style="flex:1;" data-a="fade" data-d="2">
-          <!-- 2024 Arenacross -->
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:clamp(4px,0.6vh,8px);">
-            <img src="logos/AMAFIMNA_AX-Logo-HZ-v2.webp" alt="AMA Arenacross" style="height:28px;width:auto;" />
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);">2024 AMA ARENACROSS</div>
-          </div>
-          <table class="results-table">
-            <thead>
-              <tr><th>Event</th><th>Race 1</th><th>Race 2</th><th>Overall</th><th>Notes</th></tr>
-            </thead>
-            <tbody>
-              <tr style="background:rgba(233,252,15,0.03);">
-                <td style="color:var(--white) !important;font-weight:600;">Daytona (Rd 11)</td>
-                <td>10th</td>
-                <td class="result-best" style="font-weight:700;">1st &#9733;</td>
-                <td class="result-best">5th</td>
-                <td style="color:var(--neon);font-size:11px;">MAIN EVENT WIN</td>
-              </tr>
-              <tr>
-                <td>Daytona (Rds 12-13)</td>
-                <td>3rd</td>
-                <td>4th</td>
-                <td class="result-best">3rd</td>
-                <td style="font-size:11px;color:var(--gray);">Podium</td>
-              </tr>
-              <tr>
-                <td colspan="4" style="text-align:left;">Las Vegas &mdash; Final Round</td>
-                <td style="font-size:11px;color:var(--gray);">Series Finale</td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.12);border-radius:4px;padding:clamp(6px,0.8vh,10px) 14px;margin-top:clamp(4px,0.6vh,8px);display:flex;align-items:center;gap:16px;">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--neon);">6TH OVERALL</div>
-            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);">215 Championship Points &bull; 1 Main Event Win &bull; Multiple Podiums</div>
-          </div>
+      <!-- Horizontal timeline layout -->
+      <div style="display:flex;gap:0;position:relative;" data-a="up" data-d="3">
+        <!-- Connecting line -->
+        <div style="position:absolute;top:16px;left:0;right:0;height:2px;background:linear-gradient(to right, var(--neon), rgba(233,252,15,0.2));z-index:0;"></div>
 
-          <!-- 2024 Pro Motocross -->
-          <div style="display:flex;align-items:center;gap:12px;margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">
-            <img src="logos/pro-mx-championship.png" alt="Pro Motocross" style="height:22px;width:auto;" />
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);">2024 PRO MOTOCROSS &mdash; 250 CLASS</div>
+        <!-- Arenacross -->
+        <div style="flex:1;position:relative;padding-right:clamp(12px,1.2vw,24px);">
+          <div style="width:12px;height:12px;background:var(--neon);border-radius:50%;position:relative;z-index:1;margin-bottom:clamp(12px,1.5vh,20px);box-shadow:0 0 12px rgba(233,252,15,0.4);"></div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.2vw,24px);letter-spacing:1px;color:var(--neon);margin-bottom:4px;">ARENACROSS</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(12px,0.8vw,14px);font-weight:600;color:var(--white);margin-bottom:8px;">EBR/AJAX Husqvarna</div>
+          <div style="background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.15);border-radius:4px;padding:clamp(10px,1.2vh,16px) clamp(10px,1vw,16px);margin-bottom:clamp(8px,1vh,14px);">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.2vw,44px);color:var(--neon);line-height:1;">6TH</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Overall Championship</div>
           </div>
-          <table class="results-table">
-            <thead>
-              <tr><th>National</th><th>Location</th><th>Overall</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Fox Raceway</td><td class="sched-venue">Pala, CA</td><td>30th</td></tr>
-              <tr><td>Hangtown</td><td class="sched-venue">Sacramento, CA</td><td>31st</td></tr>
-              <tr><td>Thunder Valley</td><td class="sched-venue">Lakewood, CO</td><td class="result-best">23rd</td></tr>
-              <tr><td>High Point</td><td class="sched-venue">Mount Morris, PA</td><td class="result-best">23rd</td></tr>
-              <tr><td>Southwick</td><td class="sched-venue">Southwick, MA</td><td class="result-best">23rd</td></tr>
-              <tr><td>RedBud</td><td class="sched-venue">Buchanan, MI</td><td class="result-best">22nd</td></tr>
-              <tr><td>Spring Creek</td><td class="sched-venue">Millville, MN</td><td class="result-best">23rd</td></tr>
-              <tr><td>Washougal</td><td class="sched-venue">Washougal, WA</td><td>39th</td></tr>
-            </tbody>
-          </table>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">
+            <strong style="color:var(--white);">Main Event win</strong> at the Daytona round. 215 championship points, multiple podium finishes throughout the series.
+          </div>
         </div>
 
-        <!-- Right column -->
-        <div style="flex:1;" data-a="fade" data-d="3">
-          <!-- 2025 Pro Motocross -->
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:clamp(4px,0.6vh,8px);">
-            <img src="logos/pro-mx-championship.png" alt="Pro Motocross" style="height:22px;width:auto;" />
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);">2025 PRO MOTOCROSS &mdash; 250 CLASS</div>
+        <!-- Supercross -->
+        <div style="flex:1;position:relative;padding:0 clamp(12px,1.2vw,24px);border-left:1px solid rgba(255,255,255,0.06);border-right:1px solid rgba(255,255,255,0.06);">
+          <div style="width:12px;height:12px;background:var(--neon);border-radius:50%;position:relative;z-index:1;margin-bottom:clamp(12px,1.5vh,20px);box-shadow:0 0 12px rgba(233,252,15,0.4);"></div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.2vw,24px);letter-spacing:1px;color:var(--neon);margin-bottom:4px;">SUPERCROSS</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(12px,0.8vw,14px);font-weight:600;color:var(--white);margin-bottom:8px;">250SX East Debut</div>
+          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:clamp(10px,1.2vh,16px) clamp(10px,1vw,16px);margin-bottom:clamp(8px,1vh,14px);">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.2vw,44px);color:var(--white);line-height:1;">20TH</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Philadelphia Main</div>
           </div>
-          <table class="results-table">
-            <thead>
-              <tr><th>National</th><th>Location</th><th>Overall</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Fox Raceway</td><td class="sched-venue">Pala, CA</td><td>30th</td></tr>
-              <tr><td>Hangtown</td><td class="sched-venue">Sacramento, CA</td><td>38th</td></tr>
-              <tr><td>Thunder Valley</td><td class="sched-venue">Lakewood, CO</td><td>36th</td></tr>
-              <tr><td>Ironman</td><td class="sched-venue">Crawfordsville, IN</td><td>32nd</td></tr>
-              <tr><td>Budds Creek</td><td class="sched-venue">Mechanicsville, MD</td><td class="result-best">29th</td></tr>
-            </tbody>
-          </table>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">
+            Made his Monster Energy Supercross debut and successfully qualified for the Philadelphia 250SX East Main Event.
+          </div>
+        </div>
 
-          <!-- 2024 SX -->
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2024 SUPERCROSS &mdash; 250SX EAST</div>
-          <table class="results-table">
-            <thead>
-              <tr><th>Round</th><th>Location</th><th>Overall</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Philadelphia</td><td class="sched-venue">Philadelphia, PA</td><td>20th</td></tr>
-            </tbody>
-          </table>
-
-          <!-- 2023 Pro Debut -->
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2023 PRO MOTOCROSS DEBUT &mdash; 450 CLASS</div>
-          <table class="results-table">
-            <thead>
-              <tr><th>National</th><th>Location</th><th>Overall</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Spring Creek</td><td class="sched-venue">Millville, MN</td><td>37th</td></tr>
-              <tr><td>Unadilla</td><td class="sched-venue">New Berlin, NY</td><td>40th</td></tr>
-              <tr><td>Budds Creek</td><td class="sched-venue">Mechanicsville, MD</td><td>28th</td></tr>
-              <tr><td>Ironman</td><td class="sched-venue">Crawfordsville, IN</td><td>31st</td></tr>
-            </tbody>
-          </table>
-
-          <!-- Career summary -->
-          <div style="background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.12);border-radius:4px;padding:clamp(8px,1vh,14px) 14px;margin-top:clamp(8px,1.2vh,16px);" data-a="up" data-d="5">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,16px);letter-spacing:2px;color:var(--neon);margin-bottom:4px;">CAREER SUMMARY</div>
-            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.55);line-height:1.5;">
-              3 seasons pro &bull; 1 AX Main Event win &bull; 6th in AMA Arenacross Championship &bull; 5 SX main events in 2026 &bull; Best SX finish: 13th &bull; Consistent improvement every season
-            </div>
+        <!-- Pro Motocross -->
+        <div style="flex:1;position:relative;padding-left:clamp(12px,1.2vw,24px);">
+          <div style="width:12px;height:12px;background:var(--neon);border-radius:50%;position:relative;z-index:1;margin-bottom:clamp(12px,1.5vh,20px);box-shadow:0 0 12px rgba(233,252,15,0.4);"></div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.2vw,24px);letter-spacing:1px;color:var(--neon);margin-bottom:4px;">PRO MOTOCROSS</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(12px,0.8vw,14px);font-weight:600;color:var(--white);margin-bottom:8px;">Gizmo Mods / Rock River Yamaha</div>
+          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:clamp(10px,1.2vh,16px) clamp(10px,1vw,16px);margin-bottom:clamp(8px,1vh,14px);">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.2vw,44px);color:var(--white);line-height:1;">8</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Nationals Entered</div>
+          </div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">
+            Picked up by Rock River Yamaha for the outdoor season. Best finish of <strong style="color:var(--white);">22nd at RedBud</strong>. Proved he could compete at the highest level.
           </div>
         </div>
       </div>
@@ -1780,8 +1772,8 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
 const deck = document.getElementById('deck');
 const slides = Array.from(document.querySelectorAll('.slide'));
 const slideTitles = [
-  'COVER', 'THE ATHLETE', 'WHY CROCKETT', '2026 RESULTS',
-  'CAREER RESULTS', 'BROADCAST & REACH', 'SPONSORSHIP TIERS',
+  'COVER', 'THE ATHLETE', 'WHY CROCKETT', '2026 SEASON',
+  '2025 SEASON', '2024 ROOKIE YEAR', 'BROADCAST & REACH', 'SPONSORSHIP TIERS',
   'TIER COMPARISON', '2026 SCHEDULE', 'WHAT YOU GET', 'LET\'S RIDE'
 ];
 const N = slides.length;
