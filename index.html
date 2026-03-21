@@ -59,33 +59,26 @@ html, body {
 /* ── SLIDE CONTENT CONTAINER ── */
 .slide-content {
   flex: 1; display: flex; flex-direction: column; justify-content: flex-start;
-  padding: clamp(20px, 3vh, 60px) clamp(32px, 4vw, 100px);
+  padding: clamp(36px, 5vh, 72px) clamp(32px, 4vw, 100px) clamp(24px, 3vh, 48px);
   position: relative; z-index: 2;
   overflow-y: auto; overflow-x: hidden;
   min-height: 0;
 }
-.slide-content::before,
-.slide-content::after {
-  content: ''; flex: 1 0 0px;
-}
 .slide-content > * { width: 100%; max-width: 100%; flex-shrink: 0; }
+#s1 > .slide-content { justify-content: center; }
 .slide-content::-webkit-scrollbar { width: 0; }
 .slide-content-row {
   flex: 1; display: flex; align-items: center;
-  padding: clamp(20px, 3vh, 60px) clamp(32px, 4vw, 100px);
+  padding: clamp(36px, 5vh, 72px) clamp(32px, 4vw, 100px) clamp(24px, 3vh, 48px);
   position: relative; z-index: 2;
   overflow-y: auto; overflow-x: hidden; min-height: 0;
 }
 .slide-content-row::-webkit-scrollbar { width: 0; }
 .slide-split-left {
   width: 48%; display: flex; flex-direction: column; justify-content: flex-start;
-  padding: clamp(20px, 3vh, 60px) clamp(24px, 3vw, 60px);
+  padding: clamp(36px, 5vh, 72px) clamp(24px, 3vw, 60px) clamp(24px, 3vh, 48px);
   position: relative; z-index: 2;
   overflow-y: auto; overflow-x: hidden; min-height: 0;
-}
-.slide-split-left::before,
-.slide-split-left::after {
-  content: ''; flex: 1 0 0px;
 }
 .slide-split-left > * { flex-shrink: 0; }
 .slide-split-left::-webkit-scrollbar { width: 0; }
