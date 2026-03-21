@@ -844,72 +844,97 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
   </div>
 
   <!-- ██████████████████████  SLIDE 3 — WHY CROCKETT  ██████████████████████ -->
-  <div class="slide" id="s3" style="flex-direction:row;">
+  <div class="slide" id="s3" style="flex-direction:column;position:relative;">
     <div class="neon-stripe"></div>
-    <div class="carbon-bg"></div>
 
-    <!-- Angled photo strip on the left -->
-    <div style="width:28%;position:relative;overflow:hidden;flex-shrink:0;" data-a="zoom" data-d="0">
-      <img src="Photos/CM-06.png" alt="Crockett Myers" style="width:100%;height:100%;object-fit:cover;object-position:center center;" />
-      <div style="position:absolute;inset:0;background:linear-gradient(to right, transparent 70%, var(--black) 100%);"></div>
+    <!-- Full-bleed background photo -->
+    <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+      <img src="Photos/CM-06.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(3,3,3,0.92) 0%, rgba(3,3,3,0.82) 40%, rgba(3,3,3,0.88) 100%);"></div>
     </div>
 
-    <!-- Content -->
-    <div class="slide-split-left" style="width:72%;padding-left:clamp(24px,2.5vw,48px);">
+    <!-- Diagonal neon accent line -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden;">
+      <div style="position:absolute;top:-10%;right:32%;width:2px;height:120%;background:linear-gradient(to bottom, transparent, rgba(233,252,15,0.15), rgba(233,252,15,0.03), transparent);transform:rotate(15deg);"></div>
+    </div>
+
+    <div class="slide-content" style="z-index:2;">
       <div class="eyebrow" data-a="left" data-d="0">The Opportunity</div>
-      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(30px,3vw,60px);margin-bottom:clamp(6px,1vh,14px);">WHY CROCKETT &mdash; <span>WHAT YOU GET</span></div>
-      <div style="font-family:'Barlow',sans-serif;font-size:clamp(12px,0.78vw,14px);font-weight:300;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:clamp(10px,1.8vh,22px);max-width:720px;" data-a="fade" data-d="2">
-        Sponsoring Crockett Myers means investing in one of the most compelling, high-visibility marketing opportunities in professional motocross. Here's exactly what your partnership delivers.
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);margin-bottom:clamp(4px,0.8vh,12px);">WHY CROCKETT &mdash; <span>WHAT YOU GET</span></div>
+      <div style="font-family:'Barlow',sans-serif;font-size:clamp(12px,0.78vw,14px);font-weight:300;color:rgba(255,255,255,0.45);line-height:1.5;margin-bottom:clamp(12px,2vh,24px);max-width:600px;" data-a="fade" data-d="2">
+        One of the most compelling, high-visibility marketing opportunities in professional motocross. Here's exactly what your partnership delivers.
       </div>
 
-      <!-- 6 cards: 3x2 grid -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1vh,14px) clamp(8px,0.8vw,16px);">
-        <!-- Card 1: TV & Broadcast -->
-        <div style="background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.15);border-radius:4px;padding:clamp(14px,1.6vh,24px) clamp(12px,1vw,20px);position:relative;overflow:hidden;" data-a="up" data-d="2">
-          <div style="position:absolute;top:clamp(10px,1.2vh,16px);right:clamp(10px,0.8vw,16px);font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,2.8vw,56px);color:rgba(233,252,15,0.08);line-height:1;">01</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);color:var(--neon);letter-spacing:1px;margin-bottom:clamp(4px,0.6vh,8px);">TV &amp; BROADCAST</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">National coverage on Peacock &amp; NBC every race weekend. The only Suzuki in 250 mains means your brand gets camera time with zero manufacturer competition.</div>
-          <div style="margin-top:clamp(6px,0.8vh,10px);font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--neon);letter-spacing:1px;line-height:1;">10M+ <span style="font-size:clamp(10px,0.6vw,12px);color:var(--gray);letter-spacing:0.15em;font-family:'Barlow Condensed',sans-serif;">VIEWERS / SEASON</span></div>
+      <!-- Row 1: Hero card (2-wide) + one regular -->
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:clamp(8px,1vh,14px) clamp(8px,0.8vw,14px);margin-bottom:clamp(8px,1vh,14px);" data-a="up" data-d="3">
+
+        <!-- HERO CARD: TV & Broadcast -->
+        <div style="background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.2);border-radius:6px;padding:clamp(20px,2.5vh,36px) clamp(20px,2vw,36px);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;gap:clamp(16px,2vw,32px);align-items:center;">
+          <div style="position:absolute;top:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,8vw,160px);color:rgba(233,252,15,0.04);line-height:1;letter-spacing:-3px;">01</div>
+          <div style="flex-shrink:0;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,4.5vw,90px);color:var(--neon);line-height:0.9;letter-spacing:-1px;">10M+</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,0.65vw,13px);letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin-top:4px;">VIEWERS / SEASON</div>
+          </div>
+          <div style="border-left:1px solid rgba(233,252,15,0.15);padding-left:clamp(14px,1.5vw,28px);">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.3vw,26px);color:var(--neon);letter-spacing:1px;margin-bottom:6px;">TV &amp; BROADCAST</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.72vw,14px);color:rgba(255,255,255,0.55);line-height:1.55;">National coverage on Peacock &amp; NBC every race weekend. The only Suzuki in 250 mains &mdash; your brand gets camera time with zero manufacturer competition.</div>
+          </div>
         </div>
 
-        <!-- Card 2: Bike Branding -->
-        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:clamp(14px,1.6vh,24px) clamp(12px,1vw,20px);position:relative;overflow:hidden;" data-a="up" data-d="3">
-          <div style="position:absolute;top:clamp(10px,1.2vh,16px);right:clamp(10px,0.8vw,16px);font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,2.8vw,56px);color:rgba(255,255,255,0.04);line-height:1;">02</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);color:var(--white);letter-spacing:1px;margin-bottom:clamp(4px,0.6vh,8px);">BIKE BRANDING</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">Your logo on the bike at every round &mdash; visible on TV, in race photography, and in the pits. Premium placement for Official Partners.</div>
-          <div style="margin-top:clamp(6px,0.8vh,10px);font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--white);letter-spacing:1px;line-height:1;">17 <span style="font-size:clamp(10px,0.6vw,12px);color:var(--gray);letter-spacing:0.15em;font-family:'Barlow Condensed',sans-serif;">ROUNDS / YEAR</span></div>
+        <!-- Card: Bike Branding -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:clamp(18px,2vh,32px) clamp(14px,1.2vw,24px);position:relative;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
+          <div style="position:absolute;top:-8px;right:6px;font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,4vw,80px);color:rgba(255,255,255,0.03);line-height:1;">02</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.2vw,48px);color:var(--white);line-height:0.9;letter-spacing:-1px;">17</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,0.6vw,12px);letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin:4px 0 clamp(8px,1vh,14px);">ROUNDS / YEAR</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(15px,1vw,20px);color:var(--white);letter-spacing:1px;margin-bottom:4px;">BIKE BRANDING</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.45);line-height:1.45;">Your logo on the bike at every round &mdash; TV, photography, and pits. Premium placement for Official Partners.</div>
+        </div>
+      </div>
+
+      <!-- Row 2: Three equal cards -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1vh,14px) clamp(8px,0.8vw,14px);margin-bottom:clamp(8px,1vh,14px);" data-a="up" data-d="4">
+
+        <!-- Card: Social & Content -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:clamp(16px,1.8vh,28px) clamp(14px,1.2vw,24px);position:relative;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
+          <div style="position:absolute;top:-8px;right:6px;font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,4vw,80px);color:rgba(255,255,255,0.03);line-height:1;">03</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.2vw,48px);color:var(--white);line-height:0.9;letter-spacing:-1px;">25K+</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,0.6vw,12px);letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin:4px 0 clamp(6px,0.8vh,12px);">IG FOLLOWERS</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,0.9vw,18px);color:var(--white);letter-spacing:1px;margin-bottom:4px;">SOCIAL &amp; CONTENT</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.45);line-height:1.45;">Dedicated posts, stories, and reels. Race recaps, BTS, and lifestyle content &mdash; authentic integration, not logo slaps.</div>
         </div>
 
-        <!-- Card 3: Social & Content -->
-        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:clamp(14px,1.6vh,24px) clamp(12px,1vw,20px);position:relative;overflow:hidden;" data-a="up" data-d="4">
-          <div style="position:absolute;top:clamp(10px,1.2vh,16px);right:clamp(10px,0.8vw,16px);font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,2.8vw,56px);color:rgba(255,255,255,0.04);line-height:1;">03</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);color:var(--white);letter-spacing:1px;margin-bottom:clamp(4px,0.6vh,8px);">SOCIAL &amp; CONTENT</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">Dedicated posts, stories, and reels with authentic brand integration. Race recaps, behind-the-scenes, and lifestyle content &mdash; not just logo slaps.</div>
-          <div style="margin-top:clamp(6px,0.8vh,10px);font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--white);letter-spacing:1px;line-height:1;">25K+ <span style="font-size:clamp(10px,0.6vw,12px);color:var(--gray);letter-spacing:0.15em;font-family:'Barlow Condensed',sans-serif;">IG FOLLOWERS</span></div>
+        <!-- Card: Pit Activation -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:clamp(16px,1.8vh,28px) clamp(14px,1.2vw,24px);position:relative;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
+          <div style="position:absolute;top:-8px;right:6px;font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,4vw,80px);color:rgba(255,255,255,0.03);line-height:1;">04</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.2vw,48px);color:var(--white);line-height:0.9;letter-spacing:-1px;">60K+</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,0.6vw,12px);letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin:4px 0 clamp(6px,0.8vh,12px);">FANS / EVENT</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,0.9vw,18px);color:var(--white);letter-spacing:1px;margin-bottom:4px;">PIT ACTIVATION</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.45);line-height:1.45;">Professional pit setup at every round. Fan interaction, giveaways, meet-and-greets with media and industry insiders.</div>
         </div>
 
-        <!-- Card 4: Pit Activation -->
-        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:clamp(14px,1.6vh,24px) clamp(12px,1vw,20px);position:relative;overflow:hidden;" data-a="up" data-d="5">
-          <div style="position:absolute;top:clamp(10px,1.2vh,16px);right:clamp(10px,0.8vw,16px);font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,2.8vw,56px);color:rgba(255,255,255,0.04);line-height:1;">04</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);color:var(--white);letter-spacing:1px;margin-bottom:clamp(4px,0.6vh,8px);">PIT ACTIVATION</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">Professional pit setup at every round. Direct fan interaction, giveaways, meet-and-greets, and face-to-face brand activation with media and industry insiders.</div>
-          <div style="margin-top:clamp(6px,0.8vh,10px);font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--white);letter-spacing:1px;line-height:1;">60K+ <span style="font-size:clamp(10px,0.6vw,12px);color:var(--gray);letter-spacing:0.15em;font-family:'Barlow Condensed',sans-serif;">FANS / EVENT</span></div>
+        <!-- Card: Product Integration -->
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:clamp(16px,1.8vh,28px) clamp(14px,1.2vw,24px);position:relative;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
+          <div style="position:absolute;top:-8px;right:6px;font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,4vw,80px);color:rgba(255,255,255,0.03);line-height:1;">05</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,2.2vw,48px);color:var(--white);line-height:0.9;letter-spacing:-1px;">300+</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,0.6vw,12px);letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin:4px 0 clamp(6px,0.8vh,12px);">RACE DAYS / YEAR</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,0.9vw,18px);color:var(--white);letter-spacing:1px;margin-bottom:4px;">PRODUCT INTEGRATION</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.45);line-height:1.45;">Your products used during training, race weekends, and recovery. Real-world credibility that resonates.</div>
         </div>
+      </div>
 
-        <!-- Card 5: Product Integration -->
-        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:clamp(14px,1.6vh,24px) clamp(12px,1vw,20px);position:relative;overflow:hidden;" data-a="up" data-d="6">
-          <div style="position:absolute;top:clamp(10px,1.2vh,16px);right:clamp(10px,0.8vw,16px);font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,2.8vw,56px);color:rgba(255,255,255,0.04);line-height:1;">05</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);color:var(--white);letter-spacing:1px;margin-bottom:clamp(4px,0.6vh,8px);">PRODUCT INTEGRATION</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">Your products used and showcased during training, race weekends, and recovery. Real-world demonstration that builds authentic credibility.</div>
-          <div style="margin-top:clamp(6px,0.8vh,10px);font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--white);letter-spacing:1px;line-height:1;">300+ <span style="font-size:clamp(10px,0.6vw,12px);color:var(--gray);letter-spacing:0.15em;font-family:'Barlow Condensed',sans-serif;">RACE DAYS / YEAR</span></div>
-        </div>
-
-        <!-- Card 6: Growth Story -->
-        <div style="background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.15);border-radius:4px;padding:clamp(14px,1.6vh,24px) clamp(12px,1vw,20px);position:relative;overflow:hidden;" data-a="up" data-d="7">
-          <div style="position:absolute;top:clamp(10px,1.2vh,16px);right:clamp(10px,0.8vw,16px);font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,2.8vw,56px);color:rgba(233,252,15,0.08);line-height:1;">06</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);color:var(--neon);letter-spacing:1px;margin-bottom:clamp(4px,0.6vh,8px);">PRIVATEER GROWTH STORY</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.5;">Fans rally behind the underdog. Early sponsors ride the growth curve &mdash; better placement, deeper relationships, and the story of being there from the beginning.</div>
-          <div style="margin-top:clamp(6px,0.8vh,10px);font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--neon);letter-spacing:1px;line-height:1;">3 YRS <span style="font-size:clamp(10px,0.6vw,12px);color:var(--gray);letter-spacing:0.15em;font-family:'Barlow Condensed',sans-serif;">PRO &amp; RISING</span></div>
+      <!-- Row 3: Hero card (growth story) -->
+      <div data-a="up" data-d="5">
+        <div style="background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.18);border-radius:6px;padding:clamp(16px,2vh,28px) clamp(20px,2vw,36px);position:relative;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;gap:clamp(20px,2.5vw,40px);">
+          <div style="position:absolute;top:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,8vw,160px);color:rgba(233,252,15,0.04);line-height:1;letter-spacing:-3px;">06</div>
+          <div style="flex-shrink:0;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,0.9vw,18px);color:var(--neon);letter-spacing:2px;margin-bottom:4px;">TRAJECTORY</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,3.5vw,68px);color:var(--neon);line-height:0.85;letter-spacing:-1px;">RISING</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(10px,0.6vw,12px);letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;margin-top:4px;">3 YEARS PRO</div>
+          </div>
+          <div style="border-left:1px solid rgba(233,252,15,0.15);padding-left:clamp(18px,2vw,32px);flex:1;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,1.1vw,22px);color:var(--neon);letter-spacing:1px;margin-bottom:4px;">THE PRIVATEER GROWTH STORY</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.72vw,14px);color:rgba(255,255,255,0.5);line-height:1.55;">Fans rally behind the underdog. Crockett's journey from Texas privateer to Main Event regular generates organic engagement that factory-backed riders can't deliver. Early sponsors ride the growth curve &mdash; better placement, deeper relationships, and the story of being there from the beginning.</div>
+          </div>
         </div>
       </div>
     </div>
