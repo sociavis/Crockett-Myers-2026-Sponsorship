@@ -79,20 +79,11 @@ html, body {
 }
 .slide-split-left::-webkit-scrollbar { width: 0; }
 
-/* ── TOPOGRAPHIC TEXTURE (subtle) ── */
+/* ── SLIDE BACKGROUND ── */
 .carbon-bg {
   position: absolute; inset: 0;
   pointer-events: none;
   z-index: 0;
-  overflow: hidden;
-}
-.carbon-bg::before {
-  content: '';
-  position: absolute; inset: -50%; width: 200%; height: 200%;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cdefs%3E%3Cstyle%3Ecircle%7Bfill:none;stroke:rgba(255,255,255,0.035);stroke-width:1%7D%3C/style%3E%3C/defs%3E%3Ccircle cx='300' cy='300' r='40'/%3E%3Ccircle cx='300' cy='300' r='80'/%3E%3Ccircle cx='300' cy='300' r='120'/%3E%3Ccircle cx='300' cy='300' r='160'/%3E%3Ccircle cx='300' cy='300' r='200'/%3E%3Ccircle cx='300' cy='300' r='240'/%3E%3Ccircle cx='300' cy='300' r='280'/%3E%3Ccircle cx='0' cy='0' r='60'/%3E%3Ccircle cx='0' cy='0' r='120'/%3E%3Ccircle cx='0' cy='0' r='180'/%3E%3Ccircle cx='0' cy='0' r='240'/%3E%3Ccircle cx='600' cy='600' r='80'/%3E%3Ccircle cx='600' cy='600' r='160'/%3E%3Ccircle cx='600' cy='600' r='240'/%3E%3Ccircle cx='600' cy='0' r='100'/%3E%3Ccircle cx='600' cy='0' r='200'/%3E%3Ccircle cx='0' cy='600' r='90'/%3E%3Ccircle cx='0' cy='600' r='180'/%3E%3Ccircle cx='0' cy='600' r='270'/%3E%3C/svg%3E");
-  background-size: 600px 600px;
-  opacity: 1;
 }
 
 /* ── NEON ACCENT LINE (top) ── */
@@ -733,17 +724,23 @@ html, body {
             <span style="color:var(--neon);font-size:8px;flex-shrink:0;margin-top:5px;">&#9670;</span>Pro debut July 2023 at Spring Creek National
           </div>
           <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,0.75);padding:8px 0;border-bottom:1px solid rgba(233,252,15,0.08);display:flex;gap:10px;align-items:flex-start;">
-            <span style="color:var(--neon);font-size:8px;flex-shrink:0;margin-top:5px;">&#9670;</span>Featured on Racer X, TransWorld MX, Swapmoto
+            <span style="color:var(--neon);font-size:8px;flex-shrink:0;margin-top:5px;">&#9670;</span>Multiple top-20 finishes in 2026 250SX West
           </div>
         </div>
 
         <!-- Featured media -->
         <div style="display:flex;align-items:center;gap:clamp(16px,1.5vw,28px);margin-top:clamp(10px,1.2vh,16px);" data-a="fade" data-d="6">
-          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;flex-shrink:0;">As Seen On</div>
-          <div style="width:1px;height:16px;background:rgba(255,255,255,0.1);flex-shrink:0;"></div>
-          <a href="https://www.racerxonline.com" target="_blank" rel="noopener" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">RACER X</a>
-          <a href="https://www.transworld.net/motocross" target="_blank" rel="noopener" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">TRANSWORLD MX</a>
-          <a href="https://www.swapmotolive.com" target="_blank" rel="noopener" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">SWAPMOTO</a>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;flex-shrink:0;">Featured On</div>
+          <div style="width:1px;height:24px;background:rgba(255,255,255,0.1);flex-shrink:0;"></div>
+          <a href="https://www.racerxonline.com" target="_blank" rel="noopener" style="display:flex;align-items:center;opacity:0.6;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+            <img src="logos/racerx.png" alt="Racer X" style="height:32px;width:auto;filter:brightness(1.2);" />
+          </a>
+          <a href="https://www.swapmotolive.com" target="_blank" rel="noopener" style="display:flex;align-items:center;opacity:0.6;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+            <img src="logos/swapmoto.png" alt="Swapmoto Live" style="height:30px;width:auto;" />
+          </a>
+          <a href="https://www.transworld.net/motocross" target="_blank" rel="noopener" style="display:flex;align-items:center;opacity:0.6;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+            <img src="logos/transworld.png" alt="TransWorld Motocross" style="height:28px;width:auto;" />
+          </a>
         </div>
       </div>
     </div>
@@ -751,16 +748,15 @@ html, body {
     <!-- Right panel - photo area -->
     <div style="flex:1;position:relative;overflow:hidden;" data-a="zoom" data-d="1">
       <div style="position:absolute;inset:0;background:
-        linear-gradient(to right, var(--black) 0%, rgba(6,6,6,0.85) 20%, rgba(6,6,6,0.4) 50%, transparent 80%),
-        linear-gradient(to top, rgba(6,6,6,0.8) 0%, transparent 25%),
-        radial-gradient(ellipse at 50% 50%, rgba(233,252,15,0.02) 0%, transparent 60%);
+        linear-gradient(to right, var(--black) 0%, rgba(6,6,6,0.7) 25%, rgba(6,6,6,0.2) 60%, transparent 100%),
+        linear-gradient(to top, rgba(6,6,6,0.7) 0%, transparent 20%);
         z-index:4;pointer-events:none;"></div>
       <!-- Number overlay -->
       <div style="position:absolute;bottom:-20px;right:-10px;z-index:5;
         font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,16.7vw,320px);line-height:1;
         color:transparent;-webkit-text-stroke:1px rgba(233,252,15,0.08);letter-spacing:-5px;">131</div>
       <!-- Rider photo -->
-      <img src="Photos/CM-05.png" alt="Crockett Myers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;z-index:3;" />
+      <img src="Photos/CM-05.png" alt="Crockett Myers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 25%;z-index:3;" />
       <!-- Bottom gradient info -->
       <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 32px;
         background:linear-gradient(to top,rgba(6,6,6,0.95) 0%,transparent 100%);z-index:5;">
