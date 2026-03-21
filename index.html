@@ -30,6 +30,7 @@ html, body {
   overflow: hidden;
   background: #060606;
   font-family: 'Barlow', sans-serif;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='none' stroke='%23E9FC0F' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23E9FC0F'/%3E%3C/svg%3E") 10 10, crosshair;
 }
 
 /* ── VIEWPORT-LEVEL NEON STRIPE (always full width) ── */
@@ -57,31 +58,50 @@ html, body {
 
 /* ── SLIDE CONTENT CONTAINER ── */
 .slide-content {
-  flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
-  padding: clamp(32px, 4vh, 80px) clamp(40px, 5vw, 120px);
+  flex: 1; display: flex; flex-direction: column;
+  padding: clamp(20px, 3vh, 60px) clamp(32px, 4vw, 100px);
   position: relative; z-index: 2;
   overflow-y: auto; overflow-x: hidden;
   min-height: 0;
 }
-.slide-content > * { width: 100%; }
+.slide-content > *:first-child { margin-top: auto; }
+.slide-content > *:last-child { margin-bottom: auto; }
+.slide-content > * { width: 100%; max-width: 100%; flex-shrink: 0; }
 .slide-content::-webkit-scrollbar { width: 0; }
 .slide-content-row {
-  flex: 1; display: flex; align-items: center;
-  padding: clamp(32px, 4vh, 80px) clamp(40px, 5vw, 120px);
+  flex: 1; display: flex; align-items: flex-start;
+  padding: clamp(20px, 3vh, 60px) clamp(32px, 4vw, 100px);
   position: relative; z-index: 2;
-  overflow: hidden; min-height: 0;
+  overflow-y: auto; overflow-x: hidden; min-height: 0;
 }
+.slide-content-row::-webkit-scrollbar { width: 0; }
+.slide-content-row > * { flex-shrink: 0; }
 .slide-split-left {
   width: 48%; display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(32px, 4vh, 80px) clamp(32px, 4vw, 80px);
+  padding: clamp(20px, 3vh, 60px) clamp(24px, 3vw, 60px);
   position: relative; z-index: 2;
   overflow-y: auto; overflow-x: hidden; min-height: 0;
 }
 .slide-split-left::-webkit-scrollbar { width: 0; }
 
-/* ── SLIDE BACKGROUND ── */
+/* ── CARBON FIBER TEXTURE (subtle) ── */
 .carbon-bg {
   position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.01) 2px,
+      rgba(255,255,255,0.01) 4px
+    );
   pointer-events: none;
   z-index: 0;
 }
@@ -134,7 +154,7 @@ html, body {
 .eyebrow {
   font-family: 'Share Tech Mono', monospace;
   font-size: clamp(10px, 0.63vw, 12px); font-weight: 400; letter-spacing: 0.3em;
-  color: var(--neon); text-transform: uppercase; margin-bottom: clamp(4px, 0.8vh, 10px);
+  color: var(--neon); text-transform: uppercase; margin-bottom: clamp(8px, 1.5vh, 16px);
   display: flex; align-items: center; gap: 12px;
 }
 .eyebrow::before {
@@ -680,9 +700,7 @@ html, body {
       <div style="font-family:'Barlow',sans-serif;font-size:15px;font-weight:300;
         color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:clamp(8px,1.8vh,24px);" data-a="fade" data-d="3">
         22-year-old Crockett Myers from Navasota, Texas is a rising privateer force in professional Supercross and Motocross.
-        Competing in the <strong style="color:var(--white);font-weight:600;">250SX West series</strong> aboard a Suzuki RM-Z250, Crockett
-        is the <strong style="color:var(--neon);font-weight:600;">only Suzuki in the 250 class making main events in 2026</strong> &mdash;
-        giving sponsors an unmatched visibility opportunity on a manufacturer with zero competition for screen time.
+        Competing in the <strong style="color:var(--white);font-weight:600;">250SX West series</strong> aboard a Suzuki RM-Z250, Crockett brings raw talent, relentless work ethic, and a story that fans connect with.
       </div>
 
       <div style="display:flex;gap:14px;margin-bottom:clamp(8px,1.5vh,20px);">
@@ -718,7 +736,7 @@ html, body {
             <span style="color:var(--neon);font-size:8px;flex-shrink:0;margin-top:5px;">&#9670;</span>6th overall AMA Arenacross Championship 2024
           </div>
           <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,0.75);padding:8px 0;border-bottom:1px solid rgba(233,252,15,0.08);display:flex;gap:10px;align-items:flex-start;">
-            <span style="color:var(--neon);font-size:8px;flex-shrink:0;margin-top:5px;">&#9670;</span>Schoolboy 1 title at Mini O's
+            <span style="color:var(--neon);font-size:8px;flex-shrink:0;margin-top:5px;">&#9670;</span>2025 SX main event qualifier &mdash; 250SX East
           </div>
           <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,0.75);padding:8px 0;border-bottom:1px solid rgba(233,252,15,0.08);display:flex;gap:10px;align-items:flex-start;">
             <span style="color:var(--neon);font-size:8px;flex-shrink:0;margin-top:5px;">&#9670;</span>Pro debut July 2023 at Spring Creek National
@@ -732,14 +750,17 @@ html, body {
         <div style="display:flex;align-items:center;gap:clamp(16px,1.5vw,28px);margin-top:clamp(10px,1.2vh,16px);" data-a="fade" data-d="6">
           <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;flex-shrink:0;">Featured On</div>
           <div style="width:1px;height:24px;background:rgba(255,255,255,0.1);flex-shrink:0;"></div>
-          <a href="https://www.racerxonline.com" target="_blank" rel="noopener" style="display:flex;align-items:center;opacity:0.6;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
-            <img src="logos/racerx.png" alt="Racer X" style="height:32px;width:auto;filter:brightness(1.2);" />
+          <a href="https://www.racerxonline.com" target="_blank" rel="noopener" style="display:flex;align-items:center;">
+            <img src="logos/racerx.png" alt="Racer X" style="height:32px;width:auto;" />
           </a>
-          <a href="https://www.swapmotolive.com" target="_blank" rel="noopener" style="display:flex;align-items:center;opacity:0.6;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+          <a href="https://www.swapmotolive.com" target="_blank" rel="noopener" style="display:flex;align-items:center;">
             <img src="logos/swapmoto.png" alt="Swapmoto Live" style="height:30px;width:auto;" />
           </a>
-          <a href="https://www.transworld.net/motocross" target="_blank" rel="noopener" style="display:flex;align-items:center;opacity:0.6;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+          <a href="https://www.transworld.net/motocross" target="_blank" rel="noopener" style="display:flex;align-items:center;">
             <img src="logos/transworld.png" alt="TransWorld Motocross" style="height:28px;width:auto;" />
+          </a>
+          <a href="https://www.vurbmoto.com" target="_blank" rel="noopener" style="display:flex;align-items:center;">
+            <img src="logos/VurbmotoLogo-Black-BlueV.png" alt="Vurbmoto" style="height:20px;width:auto;" />
           </a>
         </div>
       </div>
@@ -748,8 +769,8 @@ html, body {
     <!-- Right panel - photo area -->
     <div style="flex:1;position:relative;overflow:hidden;" data-a="zoom" data-d="1">
       <div style="position:absolute;inset:0;background:
-        linear-gradient(to right, var(--black) 0%, rgba(6,6,6,0.7) 25%, rgba(6,6,6,0.2) 60%, transparent 100%),
-        linear-gradient(to top, rgba(6,6,6,0.7) 0%, transparent 20%);
+        linear-gradient(to right, var(--black) 0%, transparent 15%),
+        linear-gradient(to top, rgba(6,6,6,0.6) 0%, transparent 15%);
         z-index:4;pointer-events:none;"></div>
       <!-- Number overlay -->
       <div style="position:absolute;bottom:-20px;right:-10px;z-index:5;
@@ -757,11 +778,6 @@ html, body {
         color:transparent;-webkit-text-stroke:1px rgba(233,252,15,0.08);letter-spacing:-5px;">131</div>
       <!-- Rider photo -->
       <img src="Photos/CM-05.png" alt="Crockett Myers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 25%;z-index:3;" />
-      <!-- Bottom gradient info -->
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 32px;
-        background:linear-gradient(to top,rgba(6,6,6,0.95) 0%,transparent 100%);z-index:5;">
-        <div style="font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--neon);text-transform:uppercase;">Only Suzuki in 250 Class Making Mains</div>
-      </div>
     </div>
   </div>
 
@@ -870,7 +886,10 @@ html, body {
     <div class="carbon-bg"></div>
 
     <div class="slide-content">
-      <div class="eyebrow" data-a="left" data-d="0">2026 Supercross &bull; 250SX West &bull; Suzuki RM-Z250</div>
+      <div style="display:flex;align-items:center;gap:16px;" data-a="left" data-d="0">
+        <img src="logos/supercross-live-logo.png" alt="Monster Energy Supercross" style="height:36px;width:auto;" />
+        <div class="eyebrow" style="margin-bottom:0;">2026 Supercross &bull; 250SX West &bull; Suzuki RM-Z250</div>
+      </div>
       <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">2026 <span>RESULTS</span></div>
 
       <div style="display:flex;gap:clamp(16px,2.5vw,40px);margin-top:clamp(4px,0.8vh,10px);">
@@ -985,7 +1004,10 @@ html, body {
         <!-- Left column -->
         <div style="flex:1;" data-a="fade" data-d="2">
           <!-- 2024 Arenacross -->
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-bottom:clamp(4px,0.6vh,8px);">2024 AMA ARENACROSS</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:clamp(4px,0.6vh,8px);">
+            <img src="logos/AMAFIMNA_AX-Logo-HZ-v2.webp" alt="AMA Arenacross" style="height:28px;width:auto;" />
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);">2024 AMA ARENACROSS</div>
+          </div>
           <table class="results-table">
             <thead>
               <tr><th>Event</th><th>Race 1</th><th>Race 2</th><th>Overall</th><th>Notes</th></tr>
@@ -1017,7 +1039,10 @@ html, body {
           </div>
 
           <!-- 2024 Pro Motocross -->
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2024 PRO MOTOCROSS &mdash; 250 CLASS</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">
+            <img src="logos/pro-mx-championship.png" alt="Pro Motocross" style="height:22px;width:auto;" />
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);">2024 PRO MOTOCROSS &mdash; 250 CLASS</div>
+          </div>
           <table class="results-table">
             <thead>
               <tr><th>National</th><th>Location</th><th>Overall</th></tr>
@@ -1038,7 +1063,10 @@ html, body {
         <!-- Right column -->
         <div style="flex:1;" data-a="fade" data-d="3">
           <!-- 2025 Pro Motocross -->
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-bottom:clamp(4px,0.6vh,8px);">2025 PRO MOTOCROSS &mdash; 250 CLASS</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:clamp(4px,0.6vh,8px);">
+            <img src="logos/pro-mx-championship.png" alt="Pro Motocross" style="height:22px;width:auto;" />
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);">2025 PRO MOTOCROSS &mdash; 250 CLASS</div>
+          </div>
           <table class="results-table">
             <thead>
               <tr><th>National</th><th>Location</th><th>Overall</th></tr>
@@ -1096,7 +1124,7 @@ html, body {
 
     <!-- Background photo -->
     <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
-      <img src="Photos/CM-06.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.07;" />
+      <img src="Photos/CM-06.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.15;" />
       <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.8) 50%, rgba(6,6,6,0.95) 100%);"></div>
     </div>
 
@@ -1133,10 +1161,13 @@ html, body {
         <!-- TV Coverage -->
         <div style="flex:1;background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;" data-a="left" data-d="3">
           <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--neon);margin-bottom:16px;">TELEVISION</div>
-          <div style="display:flex;gap:14px;margin-bottom:16px;">
-            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:8px 18px;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:2px;">PEACOCK</div>
-            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:8px 18px;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:2px;">NBC</div>
-            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:8px 18px;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:2px;">USA</div>
+          <div style="display:flex;gap:14px;margin-bottom:16px;align-items:center;">
+            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:10px 18px;display:flex;align-items:center;">
+              <img src="logos/peacock.png" alt="Peacock" style="height:24px;width:auto;" />
+            </div>
+            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:10px 18px;display:flex;align-items:center;">
+              <img src="logos/nbc.png" alt="NBC" style="height:32px;width:auto;" />
+            </div>
           </div>
           <div style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">
             Every round of Monster Energy Supercross and Pro Motocross is broadcast live. As a Top 16 rider, Crockett receives guaranteed on-screen time during races, including close-up shots, timing graphics, and post-race analysis.
@@ -1145,10 +1176,13 @@ html, body {
 
         <!-- Digital & Social -->
         <div style="flex:1;background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;" data-a="right" data-d="3">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--neon);margin-bottom:16px;">DIGITAL & SOCIAL</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--neon)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--neon);">DIGITAL & SOCIAL</div>
+          </div>
           <div style="display:flex;gap:14px;margin-bottom:16px;">
             <div style="text-align:center;">
-              <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);letter-spacing:1px;">603+</div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);letter-spacing:1px;">25K</div>
               <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">IG Followers</div>
             </div>
             <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
@@ -1158,8 +1192,17 @@ html, body {
             </div>
           </div>
           <div style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">
-            Crockett's social following is in early growth phase &mdash; sponsors who get in now will benefit from the compounding growth as results improve and media features increase. Already featured on Racer X, Vurbmoto, TransWorld MX, and Swapmoto Live.
+            25K+ followers and growing. Sponsors who get in now benefit from compounding growth as results improve and media features increase. Featured on Racer X, TransWorld MX, and Swapmoto Live.
           </div>
+        </div>
+
+        <!-- Instagram Feed -->
+        <div style="width:clamp(200px,18vw,300px);flex-shrink:0;background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px;overflow:hidden;" data-a="up" data-d="4">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--neon)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--white);text-transform:uppercase;">@crockettlmyers</div>
+          </div>
+          <iframe src="https://www.instagram.com/crockettlmyers/embed" style="width:100%;height:100%;border:none;border-radius:4px;flex:1;min-height:0;" scrolling="no"></iframe>
         </div>
       </div>
 
@@ -1531,7 +1574,7 @@ html, body {
     </div>
 
     <!-- Right side - contact cards -->
-    <div style="width:clamp(280px,25vw,480px);display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.2vh,16px);padding:clamp(32px,4vh,80px) clamp(32px,4vw,80px) clamp(32px,4vh,80px) 0;position:relative;z-index:2;overflow-y:auto;min-height:0;">
+    <div style="width:clamp(280px,25vw,480px);display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.2vh,16px);padding:clamp(20px,3vh,60px) clamp(20px,3vw,60px) clamp(20px,3vh,60px) 0;position:relative;z-index:2;overflow-y:auto;min-height:0;">
       <!-- Contact card -->
       <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;
         background:var(--dark2);border:1px solid var(--card-border);
@@ -1627,8 +1670,8 @@ html, body {
     </div>
   </div>
   <div id="nav-right">
-    <button class="nav-arrow" onclick="go(-1)">&#8592;</button>
-    <button class="nav-arrow" onclick="go(1)">&#8594;</button>
+    <button class="nav-arrow" onclick="go(-1)">&#8249;</button>
+    <button class="nav-arrow" onclick="go(1)">&#8250;</button>
   </div>
 </nav>
 
