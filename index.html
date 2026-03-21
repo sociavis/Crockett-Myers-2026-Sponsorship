@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crockett Myers #131 — 2026 Sponsorship Opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Barlow:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Energon Oblique';
+  src: url('Energon Oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --neon: #E9FC0F;
+  --neon-dim: rgba(233,252,15,0.12);
+  --neon-glow: rgba(233,252,15,0.25);
+  --black: #060606;
+  --dark: #0A0A0A;
+  --dark2: #111111;
+  --dark3: #161616;
+  --card: rgba(255,255,255,0.035);
+  --card-border: rgba(255,255,255,0.07);
+  --white: #FFFFFF;
+  --gray: #888888;
+  --light-gray: #BBBBBB;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #060606;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* ── VIEWPORT-LEVEL NEON STRIPE (always full width) ── */
+.viewport-stripe {
+  position: fixed; top: 0; left: 0; width: 100%; height: 3px;
+  background: var(--neon);
+  box-shadow: 0 0 12px var(--neon-glow), 0 0 30px rgba(233,252,15,0.08);
+  z-index: 100000;
+}
+
+#deck {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: calc(100vh - 52px);
+  overflow: hidden;
+}
+
+/* ── SLIDE BASE ── */
+.slide {
+  position: absolute; inset: 0;
+  display: none; overflow: hidden;
+  background: var(--black);
+}
+.slide.active { display: flex; }
+
+/* ── SLIDE CONTENT CONTAINER ── */
+.slide-content {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(16px, 2.5vh, 50px) clamp(24px, 3vw, 80px);
+  position: relative; z-index: 2;
+  overflow-y: auto; overflow-x: hidden;
+  min-height: 0;
+}
+.slide-content::-webkit-scrollbar { width: 0; }
+.slide-content-row {
+  flex: 1; display: flex;
+  padding: clamp(16px, 2.5vh, 50px) clamp(24px, 3vw, 80px);
+  position: relative; z-index: 2;
+  overflow: hidden; min-height: 0;
+}
+.slide-split-left {
+  width: 55%; display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(16px, 2vh, 52px) clamp(16px, 2vw, 48px);
+  position: relative; z-index: 2;
+  overflow-y: auto; overflow-x: hidden; min-height: 0;
+}
+.slide-split-left::-webkit-scrollbar { width: 0; }
+
+/* ── CARBON FIBER TEXTURE (subtle) ── */
+.carbon-bg {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.01) 2px,
+      rgba(255,255,255,0.01) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NEON ACCENT LINE (top) ── */
+.neon-stripe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+  background: var(--neon);
+  box-shadow: 0 0 12px var(--neon-glow), 0 0 30px rgba(233,252,15,0.08);
+  z-index: 50;
+}
+
+/* ── TRANSITIONS ── */
+@keyframes slideInRight  { from { opacity:0; transform:translateX(120px); } to { opacity:1; transform:translateX(0); } }
+@keyframes slideInLeft   { from { opacity:0; transform:translateX(-120px); } to { opacity:1; transform:translateX(0); } }
+@keyframes slideOutLeft  { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(-120px); } }
+@keyframes slideOutRight { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(120px); } }
+
+.slide.entering-right { display:flex; animation: slideInRight 0.5s cubic-bezier(0.22,0.61,0.36,1) forwards; }
+.slide.entering-left  { display:flex; animation: slideInLeft  0.5s cubic-bezier(0.22,0.61,0.36,1) forwards; }
+.slide.leaving-left   { display:flex; animation: slideOutLeft  0.4s cubic-bezier(0.55,0,1,0.45) forwards; pointer-events:none; }
+.slide.leaving-right  { display:flex; animation: slideOutRight 0.4s cubic-bezier(0.55,0,1,0.45) forwards; pointer-events:none; }
+
+/* ── ENTRANCE ANIMATIONS ── */
+[data-a] { opacity: 0; }
+@keyframes fromBottom { from { opacity:0; transform:translateY(36px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fromLeft   { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes fromRight  { from { opacity:0; transform:translateX(50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes fadeUp     { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+@keyframes zoomIn     { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+@keyframes glowPulse  { 0%,100% { box-shadow: 0 0 20px rgba(233,252,15,0.1); } 50% { box-shadow: 0 0 40px rgba(233,252,15,0.2); } }
+
+.slide.active [data-a="up"]    { animation: fromBottom 0.6s ease forwards; }
+.slide.active [data-a="left"]  { animation: fromLeft   0.6s ease forwards; }
+.slide.active [data-a="right"] { animation: fromRight  0.6s ease forwards; }
+.slide.active [data-a="fade"]  { animation: fadeUp     0.6s ease forwards; }
+.slide.active [data-a="zoom"]  { animation: zoomIn     0.5s ease forwards; }
+
+.slide.active [data-d="0"] { animation-delay: 0.05s; }
+.slide.active [data-d="1"] { animation-delay: 0.15s; }
+.slide.active [data-d="2"] { animation-delay: 0.25s; }
+.slide.active [data-d="3"] { animation-delay: 0.35s; }
+.slide.active [data-d="4"] { animation-delay: 0.45s; }
+.slide.active [data-d="5"] { animation-delay: 0.55s; }
+.slide.active [data-d="6"] { animation-delay: 0.65s; }
+.slide.active [data-d="7"] { animation-delay: 0.75s; }
+.slide.active [data-d="8"] { animation-delay: 0.85s; }
+
+/* ── EYEBROW ── */
+.eyebrow {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(10px, 0.63vw, 12px); font-weight: 400; letter-spacing: 0.3em;
+  color: var(--neon); text-transform: uppercase; margin-bottom: clamp(4px, 0.8vh, 10px);
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::before {
+  content: ''; width: 28px; height: 2px; background: var(--neon);
+  box-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* ── HEADINGS ── */
+.h1 {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 3.75vw, 72px); color: #fff; line-height: 0.92;
+  letter-spacing: -1px; text-transform: uppercase;
+  margin-bottom: clamp(8px, 1.5vh, 20px);
+}
+.h1 span { color: var(--neon); }
+.h1 .outline {
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+
+/* ── GLASS CARD ── */
+.glass {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+}
+
+/* ── STAT BOX ── */
+.stat-box {
+  background: rgba(233,252,15,0.04);
+  border: 1px solid rgba(233,252,15,0.15);
+  border-radius: 4px;
+  padding: clamp(10px, 1.5vh, 22px) clamp(12px, 1.2vw, 24px);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.stat-num {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 2.7vw, 52px); color: var(--neon); line-height: 1; letter-spacing: -1px;
+}
+.stat-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.45); text-transform: uppercase;
+}
+.stat-sub {
+  font-family: 'Barlow', sans-serif; font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── NEON LINE ── */
+.neon-line {
+  width: 48px; height: 3px; background: var(--neon);
+  box-shadow: 0 0 8px var(--neon-glow);
+  margin-bottom: clamp(6px, 1.2vh, 18px);
+}
+
+/* ── NUMBER PLATE ── */
+.number-plate {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 3.3vw, 64px); color: var(--black); line-height: 1; letter-spacing: -1px;
+  background: var(--neon);
+  padding: 8px 28px;
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
+  box-shadow: 0 0 30px var(--neon-glow);
+}
+
+/* ── NAV BAR ── */
+#nav-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 52px;
+  background: rgba(6,6,6,0.96);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: center;
+  padding: 0 32px; gap: 24px;
+  z-index: 99999;
+  backdrop-filter: blur(12px);
+}
+#nav-left {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.35);
+  min-width: 70px;
+}
+#nav-center {
+  flex: 1; display: flex; flex-direction: column; gap: 5px; align-items: center;
+}
+#slide-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.4); text-transform: uppercase;
+}
+#progress-track {
+  width: 100%; max-width: 600px; height: 2px;
+  background: rgba(255,255,255,0.08); position: relative;
+}
+#progress-fill {
+  position: absolute; left: 0; top: 0; height: 100%;
+  background: var(--neon); transition: width 0.4s ease;
+  box-shadow: 0 0 6px var(--neon-glow);
+}
+#progress-dot {
+  position: absolute; top: 50%; transform: translate(-50%,-50%);
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--neon); box-shadow: 0 0 10px var(--neon-glow);
+  transition: left 0.4s ease;
+}
+#dots-row {
+  position: absolute; top: 50%; left: 0; right: 0;
+  transform: translateY(-50%);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-dot.active { background: var(--neon); transform: scale(1.5); box-shadow: 0 0 6px var(--neon-glow); }
+.nav-dot:hover  { background: rgba(255,255,255,0.5); }
+.nav-arrow {
+  background: none; border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6); width: 36px; height: 36px;
+  border-radius: 50%; cursor: pointer; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; font-family: system-ui;
+}
+.nav-arrow:hover {
+  border-color: var(--neon); color: var(--neon);
+  background: rgba(233,252,15,0.06);
+  box-shadow: 0 0 12px rgba(233,252,15,0.15);
+}
+#nav-right { display: flex; gap: 10px; min-width: 90px; justify-content: flex-end; }
+
+/* ── FACT ROW ── */
+.fact-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: clamp(6px, 1vh, 14px) 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.fact-bar { width: 3px; min-height: 28px; background: var(--neon); flex-shrink: 0; margin-top: 2px; box-shadow: 0 0 6px var(--neon-glow); }
+.fact-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  color: var(--neon); text-transform: uppercase; margin-bottom: 3px;
+}
+.fact-body {
+  font-family: 'Barlow', sans-serif; font-size: clamp(12px, 0.78vw, 15px); font-weight: 300;
+  color: rgba(255,255,255,0.65); line-height: 1.45;
+}
+
+/* ── TIER CARD ── */
+.tier-card {
+  position: relative; overflow: hidden;
+  background: var(--dark2);
+  border: 1px solid var(--card-border);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+  display: flex; flex-direction: column;
+}
+.tier-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(233,252,15,0.2);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 20px rgba(233,252,15,0.05);
+}
+.tier-card.featured {
+  border-color: var(--neon);
+  background: linear-gradient(180deg, rgba(233,252,15,0.05) 0%, var(--dark2) 35%);
+}
+.tier-card.featured:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 30px rgba(233,252,15,0.1); }
+.tier-badge {
+  position: absolute; top: 0; left: 0;
+  background: var(--neon); color: var(--black);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 14px;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+.tier-header { padding: clamp(16px, 2vh, 32px) clamp(14px, 1.2vw, 24px) clamp(10px, 1.2vh, 18px); border-bottom: 1px solid rgba(255,255,255,0.04); }
+.tier-card.featured .tier-header { padding-top: clamp(24px, 2.5vh, 40px); }
+.tier-name {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: clamp(18px, 1.35vw, 26px); letter-spacing: 0px; line-height: 1; margin-bottom: clamp(6px, 1vh, 12px);
+  color: var(--white);
+}
+.tier-price {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: clamp(24px, 2.1vw, 40px); color: var(--neon); line-height: 1; letter-spacing: -1px;
+}
+.tier-card.featured .tier-price { font-size: clamp(28px, 2.3vw, 44px); }
+.tier-perks { padding: clamp(10px, 1.5vh, 20px) clamp(14px, 1.2vw, 24px) clamp(14px, 2vh, 28px); flex: 1; }
+.tier-perks ul { list-style: none; display: flex; flex-direction: column; gap: clamp(4px, 0.8vh, 10px); }
+.tier-perks li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: clamp(11px, 0.73vw, 14px); color: rgba(255,255,255,0.55); line-height: 1.4;
+}
+.tier-perks li::before {
+  content: ''; width: 6px; height: 6px; flex-shrink: 0;
+  background: var(--neon); margin-top: 6px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* ── SCHEDULE TABLE ── */
+.sched-table { width: 100%; border-collapse: collapse; }
+.sched-table th {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px; font-weight: 400; letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.35); text-transform: uppercase;
+  padding: 8px 10px; border-bottom: 1px solid rgba(233,252,15,0.15);
+  text-align: left;
+}
+.sched-table td {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(11px, 0.73vw, 14px); font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  padding: clamp(3px, 0.5vh, 7px) clamp(5px, 0.5vw, 10px); border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.sched-table tr:hover td { background: rgba(233,252,15,0.02); }
+.sched-rd {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif; font-size: 14px;
+  color: var(--neon); letter-spacing: 0px;
+}
+.sched-venue { color: rgba(255,255,255,0.45) !important; font-size: 13px !important; }
+.sched-highlight td { background: rgba(233,252,15,0.04); }
+.sched-highlight .sched-rd { color: var(--white); }
+
+/* ── RESULTS TABLE ── */
+.results-table { width: 100%; border-collapse: collapse; }
+.results-table th {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px; font-weight: 400; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.35); text-transform: uppercase;
+  padding: 10px 12px; border-bottom: 1px solid rgba(233,252,15,0.15);
+  text-align: left;
+}
+.results-table td {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(12px, 0.78vw, 15px); font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  padding: clamp(5px, 0.7vh, 10px) clamp(6px, 0.6vw, 12px); border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.results-table tr:hover td { background: rgba(233,252,15,0.02); }
+.result-pos {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif; font-size: 22px;
+  color: var(--neon); line-height: 1;
+}
+.result-best { color: var(--neon) !important; font-weight: 600 !important; }
+
+/* ── BREAKDOWN TABLE ── */
+.breakdown-table { width: 100%; border-collapse: collapse; }
+.breakdown-table th {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif; font-size: 14px;
+  letter-spacing: 1px; color: rgba(255,255,255,0.5);
+  padding: 12px 14px; border-bottom: 2px solid rgba(233,252,15,0.2);
+  text-align: center; background: rgba(255,255,255,0.02);
+}
+.breakdown-table th:first-child { text-align: left; color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 0.18em; font-family: 'Share Tech Mono', monospace; }
+.breakdown-table td {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(11px, 0.73vw, 14px); text-align: center;
+  padding: clamp(5px, 0.7vh, 10px) clamp(6px, 0.7vw, 14px); border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.45);
+}
+.breakdown-table td:first-child {
+  text-align: left; font-weight: 600; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.7);
+}
+.breakdown-table tr:hover td { background: rgba(255,255,255,0.015); }
+.chk { color: var(--neon); font-size: 16px; }
+.dash { color: rgba(255,255,255,0.15); }
+
+/* ── PHOTO PANEL ── */
+.photo-panel { position: relative; overflow: hidden; }
+.photo-panel img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── HERO NAME ── */
+.hero-name {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 7.3vw, 140px);
+  line-height: 0.85; letter-spacing: -2px; text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ PRELOADER ═══ -->
+<div id="preloader">
+  <div class="pre-inner">
+    <!-- RPM Tachometer ring -->
+    <div class="tach-ring">
+      <svg viewBox="0 0 200 200" class="tach-svg">
+        <!-- Background arc -->
+        <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="3"/>
+        <!-- Tick marks -->
+        <g class="tach-ticks"></g>
+        <!-- Progress arc -->
+        <circle cx="100" cy="100" r="88" fill="none" stroke="var(--neon)" stroke-width="3"
+          stroke-dasharray="553" stroke-dashoffset="553" stroke-linecap="round"
+          transform="rotate(-135 100 100)" class="tach-progress"/>
+        <!-- Redline zone -->
+        <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,50,50,0.4)" stroke-width="3"
+          stroke-dasharray="69 484" stroke-dashoffset="-415" stroke-linecap="round"
+          transform="rotate(-135 100 100)" class="tach-redline"/>
+      </svg>
+      <!-- Needle -->
+      <div class="tach-needle-wrap">
+        <div class="tach-needle"></div>
+      </div>
+      <!-- Center hub -->
+      <div class="tach-center">
+        <div class="tach-number" id="pre-number">131</div>
+      </div>
+    </div>
+    <!-- Text below -->
+    <div class="pre-name">CROCKETT MYERS</div>
+    <div class="pre-loading">
+      <span class="pre-status" id="pre-status">INITIALIZING</span>
+      <span class="pre-dots"><span>.</span><span>.</span><span>.</span></span>
+    </div>
+    <div class="pre-bar-track">
+      <div class="pre-bar-fill" id="pre-bar"></div>
+      <div class="pre-bar-glow" id="pre-bar-glow"></div>
+    </div>
+    <div class="pre-pct" id="pre-pct">0%</div>
+  </div>
+</div>
+
+<style>
+#preloader {
+  position: fixed; inset: 0; z-index: 999999;
+  background: #030303;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.pre-inner { text-align: center; }
+
+/* ── Tachometer ── */
+.tach-ring {
+  position: relative; width: 180px; height: 180px; margin: 0 auto 28px;
+}
+.tach-svg { width: 100%; height: 100%; }
+.tach-progress {
+  filter: drop-shadow(0 0 6px var(--neon-glow));
+  transition: stroke-dashoffset 0.3s ease;
+}
+.tach-redline { opacity: 0; transition: opacity 0.5s ease; }
+
+/* Tick marks generated by JS */
+.tach-tick {
+  stroke: rgba(255,255,255,0.12); stroke-width: 1.5;
+}
+.tach-tick-major {
+  stroke: rgba(255,255,255,0.3); stroke-width: 2;
+}
+.tach-tick-red {
+  stroke: rgba(255,50,50,0.4); stroke-width: 2;
+}
+
+/* Needle */
+.tach-needle-wrap {
+  position: absolute; top: 50%; left: 50%;
+  width: 0; height: 0;
+  transform: rotate(-135deg);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tach-needle {
+  position: absolute;
+  width: 72px; height: 2px;
+  background: linear-gradient(to right, transparent 0%, var(--neon) 40%, var(--neon) 100%);
+  top: -1px; left: 0;
+  transform-origin: left center;
+  box-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* Center hub */
+.tach-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #0a0a0a;
+  border: 2px solid rgba(233,252,15,0.25);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 10px rgba(233,252,15,0.08);
+}
+.tach-number {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: 22px; color: var(--neon); letter-spacing: -1px; line-height: 1;
+}
+
+/* Text */
+.pre-name {
+  font-family: 'Energon Oblique', 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 2px; color: var(--white);
+  margin-bottom: 6px;
+}
+.pre-loading {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; letter-spacing: 0.3em; color: var(--neon);
+  text-transform: uppercase; margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center; gap: 2px;
+}
+.pre-dots span {
+  animation: dotPulse 1.4s infinite;
+  opacity: 0;
+}
+.pre-dots span:nth-child(2) { animation-delay: 0.2s; }
+.pre-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+/* Progress bar */
+.pre-bar-track {
+  width: 280px; height: 2px; margin: 0 auto;
+  background: rgba(255,255,255,0.06);
+  position: relative; overflow: visible;
+}
+.pre-bar-fill {
+  position: absolute; left: 0; top: 0; height: 100%; width: 0%;
+  background: var(--neon);
+  transition: width 0.2s ease;
+}
+.pre-bar-glow {
+  position: absolute; top: -4px; height: 10px; width: 6px;
+  background: var(--neon); border-radius: 50%;
+  filter: blur(4px);
+  left: 0%; transition: left 0.2s ease;
+  opacity: 0.6;
+}
+
+.pre-pct {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px; letter-spacing: 0.2em; color: rgba(255,255,255,0.25);
+  margin-top: 10px;
+}
+</style>
+
+<!-- Viewport-level neon stripe -->
+<div class="viewport-stripe"></div>
+
+<!-- Fullscreen video background (viewport-level, behind deck) -->
+<div id="hero-video-wrap" style="position:fixed;inset:0;z-index:0;overflow:hidden;background:#060606;transition:opacity 0.5s ease;">
+  <iframe id="hero-video" src="https://www.youtube.com/embed/b0gpJDvpgIE?autoplay=1&mute=1&loop=1&playlist=b0gpJDvpgIE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3&start=2&vq=hd1080"
+    style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:none;pointer-events:none;"
+    allow="autoplay;encrypted-media" allowfullscreen></iframe>
+  <div style="position:absolute;inset:0;background:
+    linear-gradient(105deg, rgba(6,6,6,0.92) 0%, rgba(6,6,6,0.78) 35%, rgba(6,6,6,0.4) 55%, rgba(6,6,6,0.15) 75%, rgba(6,6,6,0.3) 100%),
+    linear-gradient(to bottom, rgba(6,6,6,0.25) 0%, transparent 30%, transparent 70%, rgba(6,6,6,0.75) 100%);
+    z-index:2;pointer-events:none;"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ DECK ═══ -->
+<div id="deck">
+
+  <!-- ██████████████████████  SLIDE 1 — COVER  ██████████████████████ -->
+  <div class="slide active" id="s1" style="border:none;flex-direction:column;background:transparent;">
+
+    <!-- Diagonal slash accent -->
+    <div style="position:absolute;top:0;right:0;width:45%;height:100%;z-index:2;
+      background:linear-gradient(165deg, transparent 0%, transparent 40%, rgba(233,252,15,0.03) 40.5%, rgba(233,252,15,0.03) 41%, transparent 41.5%);
+      pointer-events:none;"></div>
+
+    <!-- Main content -->
+    <div class="slide-content" style="z-index:10;">
+
+      <!-- Number plate -->
+      <div style="margin-bottom:clamp(8px,1.8vh,24px);" data-a="left" data-d="0">
+        <div class="number-plate">131</div>
+      </div>
+
+      <!-- Name -->
+      <div data-a="left" data-d="1">
+        <div class="hero-name" style="color:#fff;">CROCKETT</div>
+        <div class="hero-name" style="-webkit-text-stroke:2px var(--neon);color:transparent;">MYERS</div>
+      </div>
+
+      <!-- Tagline -->
+      <div style="margin-top:clamp(10px,2vh,28px);display:flex;align-items:center;gap:16px;" data-a="left" data-d="2">
+        <div style="width:40px;height:2px;background:var(--neon);box-shadow:0 0 8px var(--neon-glow);"></div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:0.3em;color:var(--neon);text-transform:uppercase;">
+          2026 Supercross &amp; Motocross Sponsorship
+        </div>
+      </div>
+
+      <!-- Quick stats bar -->
+      <div style="display:flex;gap:32px;margin-top:clamp(16px,3vh,40px);" data-a="up" data-d="3">
+        <div style="padding-left:16px;border-left:2px solid var(--neon);">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:3px;">Series</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;">250SX WEST</div>
+        </div>
+        <div style="padding-left:16px;border-left:2px solid var(--neon);">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:3px;">Manufacturer</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;">SUZUKI RM-Z250</div>
+        </div>
+        <div style="padding-left:16px;border-left:2px solid var(--neon);">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:3px;">Hometown</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;">NAVASOTA, TX</div>
+        </div>
+        <div style="padding-left:16px;border-left:2px solid var(--neon);">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:3px;">Broadcast</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;">PEACOCK / NBC</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom neon line -->
+    <div style="height:3px;background:var(--neon);box-shadow:0 0 12px var(--neon-glow);flex-shrink:0;"></div>
+
+    <!-- Bottom info bar -->
+    <div style="height:60px;background:rgba(6,6,6,0.98);display:flex;align-items:center;padding:0 clamp(32px,4.17vw,80px);flex-shrink:0;border-top:1px solid rgba(255,255,255,0.05);">
+      <div style="display:flex;align-items:center;gap:16px;flex:1;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="rgba(233,252,15,0.8)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:600;letter-spacing:3px;color:var(--white);">@CROCKETTLMYERS</div>
+      </div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--gray);text-transform:uppercase;">
+        SMX World Championship &bull; Monster Energy Supercross
+      </div>
+      <div style="flex:1;text-align:right;">
+        <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:22px;letter-spacing:0px;color:var(--neon);">2026 SEASON</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 2 — THE ATHLETE  ██████████████████████ -->
+  <div class="slide" id="s2" style="flex-direction:row;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <!-- Left content -->
+    <div class="slide-split-left">
+      <div class="neon-line" data-a="left" data-d="0"></div>
+      <div class="eyebrow" data-a="left" data-d="0">The Athlete</div>
+      <div class="h1" data-a="left" data-d="1">MEET<br><span>CROCKETT</span></div>
+
+      <div style="border-left:3px solid var(--neon);padding-left:20px;margin:16px 0 24px;
+        font-family:'Barlow Condensed',sans-serif;font-size:20px;font-style:italic;
+        color:rgba(255,255,255,0.7);line-height:1.45;" data-a="fade" data-d="2">
+        "A fantastic starter with rad style on a bike and a positive personality that draws fans in."
+      </div>
+
+      <div style="font-family:'Barlow',sans-serif;font-size:15px;font-weight:300;
+        color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:clamp(8px,1.8vh,24px);" data-a="fade" data-d="3">
+        22-year-old Crockett Myers from Navasota, Texas is a rising privateer force in professional Supercross and Motocross.
+        Competing in the <strong style="color:var(--white);font-weight:600;">250SX West series</strong> aboard a Suzuki RM-Z250, Crockett
+        is the <strong style="color:var(--neon);font-weight:600;">only Suzuki in the 250 class making main events in 2026</strong> &mdash;
+        giving sponsors an unmatched visibility opportunity on a manufacturer with zero competition for screen time.
+      </div>
+
+      <div style="display:flex;gap:14px;margin-bottom:clamp(8px,1.5vh,20px);">
+        <div class="stat-box" data-a="up" data-d="3">
+          <div class="stat-num">22</div>
+          <div class="stat-label">Years Old</div>
+        </div>
+        <div class="stat-box" data-a="up" data-d="4">
+          <div class="stat-num">#131</div>
+          <div class="stat-label">Race Number</div>
+        </div>
+        <div class="stat-box" data-a="up" data-d="5">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years Pro</div>
+        </div>
+        <div class="stat-box" data-a="up" data-d="6">
+          <div class="stat-num">TX</div>
+          <div class="stat-label">Navasota</div>
+        </div>
+      </div>
+
+      <!-- Career milestones -->
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.22em;color:var(--neon);text-transform:uppercase;margin-bottom:10px;" data-a="fade" data-d="5">Career Milestones</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;" data-a="up" data-d="6">
+        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;">
+          <span style="color:var(--neon);font-size:14px;flex-shrink:0;">&#9670;</span>First direct transfer to SX main &mdash; Glendale 2026
+        </div>
+        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;">
+          <span style="color:var(--neon);font-size:14px;flex-shrink:0;">&#9670;</span>Arenacross Main Event win &mdash; Daytona 2024
+        </div>
+        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;">
+          <span style="color:var(--neon);font-size:14px;flex-shrink:0;">&#9670;</span>6th overall AMA Arenacross Championship 2024
+        </div>
+        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;">
+          <span style="color:var(--neon);font-size:14px;flex-shrink:0;">&#9670;</span>Schoolboy 1 title at Mini O's
+        </div>
+        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;">
+          <span style="color:var(--neon);font-size:14px;flex-shrink:0;">&#9670;</span>Pro debut July 2023 at Spring Creek National
+        </div>
+        <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.55);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;">
+          <span style="color:var(--neon);font-size:14px;flex-shrink:0;">&#9670;</span>Featured on Racer X, TransWorld MX, Swapmoto
+        </div>
+      </div>
+    </div>
+
+    <!-- Right panel - photo area -->
+    <div style="flex:1;position:relative;overflow:hidden;" data-a="zoom" data-d="1">
+      <div style="position:absolute;inset:0;background:
+        linear-gradient(to right, var(--black) 0%, rgba(6,6,6,0.3) 30%, transparent 100%),
+        radial-gradient(ellipse at 50% 50%, rgba(233,252,15,0.02) 0%, transparent 60%);
+        z-index:2;"></div>
+      <!-- Number overlay -->
+      <div style="position:absolute;bottom:-20px;right:-10px;z-index:3;
+        font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(100px,16.7vw,320px);line-height:1;
+        color:transparent;-webkit-text-stroke:1px rgba(233,252,15,0.08);letter-spacing:-6px;">131</div>
+      <!-- Rider photo -->
+      <img src="Photos/CM-02.png" alt="Crockett Myers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:3;" />
+      <!-- Bottom gradient info -->
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 32px;
+        background:linear-gradient(to top,rgba(6,6,6,0.95) 0%,transparent 100%);z-index:5;">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--neon);text-transform:uppercase;">Only Suzuki in 250 Class Making Mains</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 3 — WHY CROCKETT  ██████████████████████ -->
+  <div class="slide" id="s3" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <!-- Background photo -->
+    <div style="position:absolute;right:0;top:0;width:40%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
+      <img src="Photos/CM-05.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.12;" />
+    </div>
+
+    <!-- Subtle radial glow -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%, rgba(233,252,15,0.025) 0%, transparent 50%);z-index:1;pointer-events:none;"></div>
+
+    <div class="slide-content">
+
+      <div class="neon-line" data-a="left" data-d="0"></div>
+      <div class="eyebrow" data-a="left" data-d="0">The Opportunity</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(34px,3.5vw,68px);">WHY <span>CROCKETT?</span></div>
+
+      <div style="display:flex;gap:clamp(16px,2.5vw,40px);margin-top:clamp(4px,0.8vh,10px);">
+        <!-- Left column - value propositions -->
+        <div style="flex:1;">
+          <div style="font-family:'Barlow',sans-serif;font-size:15px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:clamp(10px,2vh,28px);" data-a="fade" data-d="2">
+            Sponsoring Crockett Myers isn't just supporting a rider &mdash; it's investing in one of the most compelling marketing opportunities in professional motocross. Here's what sets him apart:
+          </div>
+
+          <div class="fact-row" data-a="left" data-d="2">
+            <div class="fact-bar"></div>
+            <div>
+              <div class="fact-title">The Only Suzuki Making Mains</div>
+              <div class="fact-body">Crockett is the sole Suzuki rider in the 250 class qualifying for main events in 2026. Your logo on his bike has zero competition for screen time from any other Suzuki &mdash; an unmatched visibility advantage.</div>
+            </div>
+          </div>
+          <div class="fact-row" data-a="left" data-d="3">
+            <div class="fact-bar"></div>
+            <div>
+              <div class="fact-title">National TV Every Weekend</div>
+              <div class="fact-body">Top 16 in the 250 West Series means guaranteed television coverage on Peacock and NBC every race weekend. Your brand is on screen in front of millions of passionate motorsports viewers.</div>
+            </div>
+          </div>
+          <div class="fact-row" data-a="left" data-d="4">
+            <div class="fact-bar"></div>
+            <div>
+              <div class="fact-title">Professional Pit Presence</div>
+              <div class="fact-body">Full professional pit setup at every round provides face-to-face brand activation opportunities with fans, media, and industry insiders in the paddock.</div>
+            </div>
+          </div>
+          <div class="fact-row" data-a="left" data-d="5">
+            <div class="fact-bar"></div>
+            <div>
+              <div class="fact-title">Authentic Privateer Story</div>
+              <div class="fact-body">Fans rally behind the privateer. Crockett's underdog journey from Texas to the main events generates organic engagement and emotional connection that factory-backed riders simply can't deliver.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column - key stats -->
+        <div style="width:clamp(260px,20vw,380px);flex-shrink:0;display:flex;flex-direction:column;gap:14px;">
+          <div class="stat-box" data-a="right" data-d="2" style="padding:28px;">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:8px;">Competitive Edge</div>
+            <div class="stat-num" style="font-size:clamp(40px,4.17vw,80px);">ONLY</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;margin-top:4px;">Suzuki in 250 Main Events</div>
+            <div class="stat-label" style="margin-top:8px;">Zero brand competition on manufacturer</div>
+          </div>
+
+          <div style="display:flex;gap:14px;">
+            <div class="stat-box" data-a="up" data-d="4" style="flex:1;">
+              <div class="stat-num">14th</div>
+              <div class="stat-label">Best SX Finish</div>
+              <div class="stat-sub">Glendale 2026</div>
+            </div>
+            <div class="stat-box" data-a="up" data-d="5" style="flex:1;">
+              <div class="stat-num">17th</div>
+              <div class="stat-label">250SX West</div>
+              <div class="stat-sub">Current Standing</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;">
+            <div class="stat-box" data-a="up" data-d="6" style="flex:1;">
+              <div class="stat-num">9th</div>
+              <div class="stat-label">Best Heat Finish</div>
+              <div class="stat-sub">Direct Transfer</div>
+            </div>
+            <div class="stat-box" data-a="up" data-d="7" style="flex:1;">
+              <div class="stat-num">1st</div>
+              <div class="stat-label">AX Main Win</div>
+              <div class="stat-sub">Daytona 2024</div>
+            </div>
+          </div>
+
+          <!-- Rising trajectory callout -->
+          <div style="background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:16px 20px;" data-a="up" data-d="8">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:var(--neon);letter-spacing:1px;margin-bottom:4px;">TRAJECTORY: RISING</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Improving results every round. Getting in now means your brand grows with his ascent.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 4 — 2026 SX RESULTS  ██████████████████████ -->
+  <div class="slide" id="s4" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <div class="slide-content">
+      <div class="neon-line" data-a="left" data-d="0"></div>
+      <div class="eyebrow" data-a="left" data-d="0">2026 Supercross &bull; 250SX West &bull; Suzuki RM-Z250</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">2026 <span>RESULTS</span></div>
+
+      <div style="display:flex;gap:clamp(16px,2.5vw,40px);margin-top:clamp(4px,0.8vh,10px);">
+        <!-- Results table -->
+        <div style="flex:1;" data-a="fade" data-d="2">
+          <table class="results-table">
+            <thead>
+              <tr><th>Round</th><th>Venue</th><th>Location</th><th>Overall</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="sched-rd">RD 1</span></td>
+                <td>Angel Stadium</td>
+                <td class="sched-venue">Anaheim, CA</td>
+                <td class="result-best">17th</td>
+              </tr>
+              <tr>
+                <td><span class="sched-rd">RD 3</span></td>
+                <td>Angel Stadium</td>
+                <td class="sched-venue">Anaheim, CA</td>
+                <td class="result-best">13th</td>
+              </tr>
+              <tr>
+                <td><span class="sched-rd">RD 4</span></td>
+                <td>NRG Stadium</td>
+                <td class="sched-venue">Houston, TX</td>
+                <td>18th</td>
+              </tr>
+              <tr style="background:rgba(233,252,15,0.03);">
+                <td><span class="sched-rd">RD 5</span></td>
+                <td style="color:var(--white) !important;font-weight:600;">State Farm Stadium</td>
+                <td class="sched-venue">Glendale, AZ</td>
+                <td class="result-best" style="font-weight:700;">14th &#9733;</td>
+              </tr>
+              <tr>
+                <td><span class="sched-rd">RD 6</span></td>
+                <td>Lumen Field</td>
+                <td class="sched-venue">Seattle, WA</td>
+                <td>14th</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--gray);margin-top:clamp(6px,1vh,12px);text-transform:uppercase;">
+            &#9733; = First-ever direct transfer to main (no LCQ) &bull; Season in progress
+          </div>
+
+          <!-- 2025 SX East -->
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2025 SUPERCROSS &mdash; 250SX EAST &bull; KTM 250 SX-F</div>
+          <table class="results-table">
+            <thead>
+              <tr><th>Round</th><th>Venue</th><th>Location</th><th>Overall</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="sched-rd">RD 9</span></td>
+                <td>Protective Stadium</td>
+                <td class="sched-venue">Birmingham, AL</td>
+                <td>18th</td>
+              </tr>
+              <tr>
+                <td><span class="sched-rd">RD 11</span></td>
+                <td>Gillette Stadium</td>
+                <td class="sched-venue">Foxborough, MA</td>
+                <td class="result-best">16th</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Side stats -->
+        <div style="width:clamp(220px,16.7vw,320px);flex-shrink:0;display:flex;flex-direction:column;gap:clamp(8px,1vh,14px);">
+          <div style="background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.18);border-radius:4px;padding:clamp(12px,1.5vh,24px);" data-a="right" data-d="2">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:clamp(4px,0.6vh,8px);">Breakout Moment</div>
+            <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(28px,2.7vw,52px);color:var(--neon);line-height:1;letter-spacing:-1px;">GLENDALE</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(14px,0.9vw,18px);font-weight:600;color:var(--white);margin-top:4px;">First-Ever Direct Transfer</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.45);margin-top:6px;line-height:1.45;">
+              9th in Heat Race for automatic main event qualification. 14th place finish collecting championship points.
+            </div>
+          </div>
+
+          <div class="stat-box" data-a="up" data-d="3">
+            <div class="stat-num">13th</div>
+            <div class="stat-label">Best 2026 SX Finish</div>
+            <div class="stat-sub">Anaheim 2</div>
+          </div>
+
+          <div class="stat-box" data-a="up" data-d="4">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Main Events Made</div>
+            <div class="stat-sub">2026 250SX West</div>
+          </div>
+
+          <div style="background:rgba(233,252,15,0.06);border:1px solid rgba(233,252,15,0.15);border-radius:4px;padding:clamp(10px,1.2vh,16px) clamp(12px,1vw,20px);" data-a="up" data-d="5">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.18em;color:var(--neon);text-transform:uppercase;margin-bottom:4px;">TRAJECTORY: RISING</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);line-height:1.45;">Improving results every round. Only Suzuki making mains &mdash; your brand grows with his ascent.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 4B — CAREER RESULTS  ██████████████████████ -->
+  <div class="slide" id="s4b" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <div class="slide-content">
+      <div class="neon-line" data-a="left" data-d="0"></div>
+      <div class="eyebrow" data-a="left" data-d="0">Career Results</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">PRO <span>TRACK RECORD</span></div>
+
+      <div style="display:flex;gap:clamp(16px,2.5vw,40px);margin-top:clamp(4px,0.8vh,10px);">
+        <!-- Left column -->
+        <div style="flex:1;" data-a="fade" data-d="2">
+          <!-- 2024 Arenacross -->
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-bottom:clamp(4px,0.6vh,8px);">2024 AMA ARENACROSS</div>
+          <table class="results-table">
+            <thead>
+              <tr><th>Event</th><th>Race 1</th><th>Race 2</th><th>Overall</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(233,252,15,0.03);">
+                <td style="color:var(--white) !important;font-weight:600;">Daytona (Rd 11)</td>
+                <td>10th</td>
+                <td class="result-best" style="font-weight:700;">1st &#9733;</td>
+                <td class="result-best">5th</td>
+                <td style="color:var(--neon);font-size:11px;">MAIN EVENT WIN</td>
+              </tr>
+              <tr>
+                <td>Daytona (Rds 12-13)</td>
+                <td>3rd</td>
+                <td>4th</td>
+                <td class="result-best">3rd</td>
+                <td style="font-size:11px;color:var(--gray);">Podium</td>
+              </tr>
+              <tr>
+                <td colspan="4" style="text-align:left;">Las Vegas &mdash; Final Round</td>
+                <td style="font-size:11px;color:var(--gray);">Series Finale</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.12);border-radius:4px;padding:clamp(6px,0.8vh,10px) 14px;margin-top:clamp(4px,0.6vh,8px);display:flex;align-items:center;gap:16px;">
+            <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(18px,1.4vw,28px);color:var(--neon);">6TH OVERALL</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.5);">215 Championship Points &bull; 1 Main Event Win &bull; Multiple Podiums</div>
+          </div>
+
+          <!-- 2024 Pro Motocross -->
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2024 PRO MOTOCROSS &mdash; 250 CLASS</div>
+          <table class="results-table">
+            <thead>
+              <tr><th>National</th><th>Location</th><th>Overall</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fox Raceway</td><td class="sched-venue">Pala, CA</td><td>30th</td></tr>
+              <tr><td>Hangtown</td><td class="sched-venue">Sacramento, CA</td><td>31st</td></tr>
+              <tr><td>Thunder Valley</td><td class="sched-venue">Lakewood, CO</td><td class="result-best">23rd</td></tr>
+              <tr><td>High Point</td><td class="sched-venue">Mount Morris, PA</td><td class="result-best">23rd</td></tr>
+              <tr><td>Southwick</td><td class="sched-venue">Southwick, MA</td><td class="result-best">23rd</td></tr>
+              <tr><td>RedBud</td><td class="sched-venue">Buchanan, MI</td><td class="result-best">22nd</td></tr>
+              <tr><td>Spring Creek</td><td class="sched-venue">Millville, MN</td><td class="result-best">23rd</td></tr>
+              <tr><td>Washougal</td><td class="sched-venue">Washougal, WA</td><td>39th</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Right column -->
+        <div style="flex:1;" data-a="fade" data-d="3">
+          <!-- 2025 Pro Motocross -->
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-bottom:clamp(4px,0.6vh,8px);">2025 PRO MOTOCROSS &mdash; 250 CLASS</div>
+          <table class="results-table">
+            <thead>
+              <tr><th>National</th><th>Location</th><th>Overall</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fox Raceway</td><td class="sched-venue">Pala, CA</td><td>30th</td></tr>
+              <tr><td>Hangtown</td><td class="sched-venue">Sacramento, CA</td><td>38th</td></tr>
+              <tr><td>Thunder Valley</td><td class="sched-venue">Lakewood, CO</td><td>36th</td></tr>
+              <tr><td>Ironman</td><td class="sched-venue">Crawfordsville, IN</td><td>32nd</td></tr>
+              <tr><td>Budds Creek</td><td class="sched-venue">Mechanicsville, MD</td><td class="result-best">29th</td></tr>
+            </tbody>
+          </table>
+
+          <!-- 2024 SX -->
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2024 SUPERCROSS &mdash; 250SX EAST</div>
+          <table class="results-table">
+            <thead>
+              <tr><th>Round</th><th>Location</th><th>Overall</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Philadelphia</td><td class="sched-venue">Philadelphia, PA</td><td>20th</td></tr>
+            </tbody>
+          </table>
+
+          <!-- 2023 Pro Debut -->
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(14px,1vw,18px);letter-spacing:2px;color:var(--neon);margin-top:clamp(12px,2vh,24px);margin-bottom:clamp(4px,0.6vh,8px);">2023 PRO MOTOCROSS DEBUT &mdash; 450 CLASS</div>
+          <table class="results-table">
+            <thead>
+              <tr><th>National</th><th>Location</th><th>Overall</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Spring Creek</td><td class="sched-venue">Millville, MN</td><td>37th</td></tr>
+              <tr><td>Unadilla</td><td class="sched-venue">New Berlin, NY</td><td>40th</td></tr>
+              <tr><td>Budds Creek</td><td class="sched-venue">Mechanicsville, MD</td><td>28th</td></tr>
+              <tr><td>Ironman</td><td class="sched-venue">Crawfordsville, IN</td><td>31st</td></tr>
+            </tbody>
+          </table>
+
+          <!-- Career summary -->
+          <div style="background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.12);border-radius:4px;padding:clamp(8px,1vh,14px) 14px;margin-top:clamp(8px,1.2vh,16px);" data-a="up" data-d="5">
+            <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(14px,1vw,16px);letter-spacing:2px;color:var(--neon);margin-bottom:4px;">CAREER SUMMARY</div>
+            <div style="font-family:'Barlow',sans-serif;font-size:clamp(11px,0.68vw,13px);color:rgba(255,255,255,0.55);line-height:1.5;">
+              3 seasons pro &bull; 1 AX Main Event win &bull; 6th in AMA Arenacross Championship &bull; 5 SX main events in 2026 &bull; Best SX finish: 13th &bull; Consistent improvement every season
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 5 — BROADCAST & EXPOSURE  ██████████████████████ -->
+  <div class="slide" id="s5" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <!-- Background photo -->
+    <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
+      <img src="Photos/CM-06.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.07;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.8) 50%, rgba(6,6,6,0.95) 100%);"></div>
+    </div>
+
+    <div class="slide-content">
+      <div class="neon-line" data-a="left" data-d="0"></div>
+      <div class="eyebrow" data-a="left" data-d="0">Media Exposure</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">BROADCAST <span>&amp; REACH</span></div>
+
+      <!-- Big numbers row -->
+      <div style="display:flex;gap:16px;margin-bottom:clamp(10px,2vh,28px);">
+        <div class="stat-box" data-a="up" data-d="1" style="flex:1;padding:clamp(12px,2vh,28px);text-align:center;">
+          <div class="stat-num" style="font-size:clamp(32px,3.3vw,64px);">28</div>
+          <div class="stat-label">Total Rounds</div>
+          <div class="stat-sub">SX + MX + Playoffs</div>
+        </div>
+        <div class="stat-box" data-a="up" data-d="2" style="flex:1;padding:clamp(12px,2vh,28px);text-align:center;">
+          <div class="stat-num" style="font-size:clamp(32px,3.3vw,64px);">17</div>
+          <div class="stat-label">Supercross Rounds</div>
+          <div class="stat-sub">Jan &ndash; May 2026</div>
+        </div>
+        <div class="stat-box" data-a="up" data-d="3" style="flex:1;padding:clamp(12px,2vh,28px);text-align:center;">
+          <div class="stat-num" style="font-size:clamp(32px,3.3vw,64px);">11</div>
+          <div class="stat-label">Motocross Nationals</div>
+          <div class="stat-sub">May &ndash; Aug 2026</div>
+        </div>
+        <div class="stat-box" data-a="up" data-d="4" style="flex:1;padding:clamp(12px,2vh,28px);text-align:center;">
+          <div class="stat-num" style="font-size:clamp(32px,3.3vw,64px);">3</div>
+          <div class="stat-label">SMX Playoffs</div>
+          <div class="stat-sub">Sept 2026</div>
+        </div>
+      </div>
+
+      <!-- Broadcast details -->
+      <div style="display:flex;gap:24px;">
+        <!-- TV Coverage -->
+        <div style="flex:1;background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;" data-a="left" data-d="3">
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--neon);margin-bottom:16px;">TELEVISION</div>
+          <div style="display:flex;gap:14px;margin-bottom:16px;">
+            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:8px 18px;font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:0px;">PEACOCK</div>
+            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:8px 18px;font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:0px;">NBC</div>
+            <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.2);border-radius:4px;padding:8px 18px;font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:0px;">USA</div>
+          </div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">
+            Every round of Monster Energy Supercross and Pro Motocross is broadcast live. As a Top 16 rider, Crockett receives guaranteed on-screen time during races, including close-up shots, timing graphics, and post-race analysis.
+          </div>
+        </div>
+
+        <!-- Digital & Social -->
+        <div style="flex:1;background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;" data-a="right" data-d="3">
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--neon);margin-bottom:16px;">DIGITAL & SOCIAL</div>
+          <div style="display:flex;gap:14px;margin-bottom:16px;">
+            <div style="text-align:center;">
+              <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:36px;color:var(--white);letter-spacing:-1px;">603+</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">IG Followers</div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+            <div style="text-align:center;">
+              <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:36px;color:var(--white);letter-spacing:-1px;">GROWING</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;">Audience Trend</div>
+            </div>
+          </div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">
+            Crockett's social following is in early growth phase &mdash; sponsors who get in now will benefit from the compounding growth as results improve and media features increase. Already featured on Racer X, Vurbmoto, TransWorld MX, and Swapmoto Live.
+          </div>
+        </div>
+      </div>
+
+      <!-- Neon callout bar -->
+      <div style="background:rgba(233,252,15,0.08);border:1px solid rgba(233,252,15,0.18);border-radius:4px;padding:16px 28px;margin-top:20px;display:flex;align-items:center;gap:24px;" data-a="up" data-d="5">
+        <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--neon);">YOUR BRAND ON TV EVERY WEEKEND</div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.1);"></div>
+        <div style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;">
+          With Crockett as the only Suzuki making mains, every on-screen appearance features your branding without any visual competition from the same manufacturer.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 6 — SPONSORSHIP TIERS  ██████████████████████ -->
+  <div class="slide" id="s6" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <div class="slide-content">
+      <div style="text-align:center;margin-bottom:clamp(16px,3vh,40px);">
+        <div class="eyebrow" data-a="fade" data-d="0" style="justify-content:center;"><span style="display:none;"></span>Partnership Levels</div>
+        <div class="h1" data-a="fade" data-d="1" style="font-size:clamp(32px,3.3vw,64px);">SPONSORSHIP <span>TIERS</span></div>
+        <div style="font-family:'Barlow',sans-serif;font-size:15px;color:var(--gray);max-width:560px;margin:0 auto;line-height:1.7;" data-a="fade" data-d="2">
+          Flexible partnership options designed to maximize your brand's exposure and ROI. Every tier puts your brand on the biggest stage in motocross.
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <!-- Official Partner -->
+        <div class="tier-card featured" data-a="up" data-d="2">
+          <div class="tier-badge">BEST VALUE</div>
+          <div class="tier-header">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:6px;">Tier 01</div>
+            <div class="tier-name">OFFICIAL PARTNER</div>
+            <div class="tier-price">$25K &ndash; $40K</div>
+          </div>
+          <div class="tier-perks">
+            <ul>
+              <li>Premium logo placement on bike</li>
+              <li>Multiple social media content posts</li>
+              <li>Product integration during training, race weekends &amp; recovery</li>
+              <li>Lifestyle content creation</li>
+              <li>Fan engagement opportunities</li>
+              <li>Priority brand positioning</li>
+              <li>Full-season commitment &amp; exposure</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Performance Partner -->
+        <div class="tier-card" data-a="up" data-d="3">
+          <div class="tier-header">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:6px;">Tier 02</div>
+            <div class="tier-name">PERFORMANCE PARTNER</div>
+            <div class="tier-price">$7,500 &ndash; $12,500</div>
+          </div>
+          <div class="tier-perks">
+            <ul>
+              <li>Logo on bike</li>
+              <li>4&ndash;6 social media posts</li>
+              <li>Content during race weekends &amp; training</li>
+              <li>Brand tags in athlete updates &amp; race posts</li>
+              <li>Multi-round exposure</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Single Round -->
+        <div class="tier-card" data-a="up" data-d="4">
+          <div class="tier-header">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--gray);text-transform:uppercase;margin-bottom:6px;">Tier 03</div>
+            <div class="tier-name">SINGLE ROUND</div>
+            <div class="tier-price">$2,500</div>
+          </div>
+          <div class="tier-perks">
+            <ul>
+              <li>Logo placement on bike for one round</li>
+              <li>2 social posts &mdash; race weekend &amp; race recap</li>
+              <li>Perfect for testing the waters</li>
+              <li>Great entry point for new sponsors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom callout -->
+      <div style="margin-top:24px;background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:18px 28px;display:flex;align-items:center;gap:24px;" data-a="up" data-d="5">
+        <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--neon);">CUSTOM PACKAGES AVAILABLE</div>
+        <div style="width:1px;height:28px;background:rgba(255,255,255,0.08);"></div>
+        <div style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;flex:1;">
+          Have a unique activation idea? Product-for-trade deal? Multi-event package? We're open to creative partnerships that deliver value for both sides. Every sponsor relationship is customized.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 7 — TIER BREAKDOWN  ██████████████████████ -->
+  <div class="slide" id="s7" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <div class="slide-content">
+      <div class="neon-line" data-a="left" data-d="0"></div>
+      <div class="eyebrow" data-a="left" data-d="0">Side-by-Side</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(28px,2.9vw,56px);">TIER <span>COMPARISON</span></div>
+
+      <div data-a="fade" data-d="2" style="margin-top:10px;">
+        <table class="breakdown-table">
+          <thead>
+            <tr>
+              <th>Deliverable</th>
+              <th style="color:var(--neon);">Official Partner</th>
+              <th>Performance Partner</th>
+              <th>Single Round</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Investment</td>
+              <td style="color:var(--neon);font-weight:700;">$25K &ndash; $40K</td>
+              <td style="color:var(--white);">$7.5K &ndash; $12.5K</td>
+              <td style="color:var(--white);">$2,500</td>
+            </tr>
+            <tr>
+              <td>Logo on Bike</td>
+              <td><span class="chk">&#10003;</span> Premium</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="chk">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>Social Media Posts</td>
+              <td style="color:var(--neon);">Multiple / Ongoing</td>
+              <td>4 &ndash; 6 Posts</td>
+              <td>2 Posts</td>
+            </tr>
+            <tr>
+              <td>Race Weekend Content</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="chk">&#10003;</span></td>
+            </tr>
+            <tr>
+              <td>Training Content</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+            </tr>
+            <tr>
+              <td>Product Integration</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+            </tr>
+            <tr>
+              <td>Lifestyle Content</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+            </tr>
+            <tr>
+              <td>Fan Engagement Activations</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+            </tr>
+            <tr>
+              <td>Brand Tags in Updates</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+            </tr>
+            <tr>
+              <td>Recovery / Off-Track Content</td>
+              <td><span class="chk">&#10003;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+              <td><span class="dash">&mdash;</span></td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td style="color:var(--neon);">Full Season</td>
+              <td>Multi-Round</td>
+              <td>1 Round</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 8 — 2026 SCHEDULE  ██████████████████████ -->
+  <div class="slide" id="s8" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <div class="slide-content-row" style="gap:clamp(16px,2vw,36px);flex-direction:row;">
+      <!-- Supercross -->
+      <div style="flex:1;display:flex;flex-direction:column;">
+        <div class="eyebrow" data-a="left" data-d="0" style="margin-bottom:6px;">Monster Energy Supercross</div>
+        <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(22px,2.2vw,42px);color:#fff;letter-spacing:-1px;margin-bottom:14px;" data-a="left" data-d="1">
+          SUPERCROSS <span style="color:var(--neon);">2026</span>
+        </div>
+        <table class="sched-table" data-a="fade" data-d="1" style="font-size:13px;">
+          <thead><tr><th>RD</th><th>DATE</th><th>VENUE</th><th>CITY</th></tr></thead>
+          <tbody>
+            <tr><td><span class="sched-rd">1</span></td><td>Jan 10</td><td>Angel Stadium</td><td class="sched-venue">Anaheim, CA</td></tr>
+            <tr><td><span class="sched-rd">2</span></td><td>Jan 17</td><td>Snapdragon Stadium</td><td class="sched-venue">San Diego, CA</td></tr>
+            <tr><td><span class="sched-rd">3</span></td><td>Jan 24</td><td>Angel Stadium</td><td class="sched-venue">Anaheim, CA</td></tr>
+            <tr><td><span class="sched-rd">4</span></td><td>Jan 31</td><td>NRG Stadium</td><td class="sched-venue">Houston, TX</td></tr>
+            <tr class="sched-highlight"><td><span class="sched-rd">5</span></td><td>Feb 7</td><td style="color:var(--neon) !important;">State Farm Stadium</td><td class="sched-venue">Glendale, AZ</td></tr>
+            <tr><td><span class="sched-rd">6</span></td><td>Feb 14</td><td>Lumen Field</td><td class="sched-venue">Seattle, WA</td></tr>
+            <tr><td><span class="sched-rd">7</span></td><td>Feb 21</td><td>AT&T Stadium</td><td class="sched-venue">Arlington, TX</td></tr>
+            <tr><td><span class="sched-rd">8</span></td><td>Feb 28</td><td>Daytona Intl Speedway</td><td class="sched-venue">Daytona Beach, FL</td></tr>
+            <tr><td><span class="sched-rd">9</span></td><td>Mar 7</td><td>Lucas Oil Stadium</td><td class="sched-venue">Indianapolis, IN</td></tr>
+            <tr><td><span class="sched-rd">10</span></td><td>Mar 21</td><td>Protective Stadium</td><td class="sched-venue">Birmingham, AL</td></tr>
+            <tr><td><span class="sched-rd">11</span></td><td>Mar 28</td><td>Ford Field</td><td class="sched-venue">Detroit, MI</td></tr>
+            <tr><td><span class="sched-rd">12</span></td><td>Apr 4</td><td>Dome at America's Center</td><td class="sched-venue">St. Louis, MO</td></tr>
+            <tr><td><span class="sched-rd">13</span></td><td>Apr 11</td><td>Nissan Stadium</td><td class="sched-venue">Nashville, TN</td></tr>
+            <tr><td><span class="sched-rd">14</span></td><td>Apr 18</td><td>Huntington Bank Field</td><td class="sched-venue">Cleveland, OH</td></tr>
+            <tr><td><span class="sched-rd">15</span></td><td>Apr 25</td><td>Lincoln Financial Field</td><td class="sched-venue">Philadelphia, PA</td></tr>
+            <tr><td><span class="sched-rd">16</span></td><td>May 2</td><td>Empower Field at Mile High</td><td class="sched-venue">Denver, CO</td></tr>
+            <tr><td><span class="sched-rd">17</span></td><td>May 9</td><td>Rice-Eccles Stadium</td><td class="sched-venue">Salt Lake City, UT</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Motocross + Playoffs -->
+      <div style="flex:1;display:flex;flex-direction:column;">
+        <div class="eyebrow" data-a="right" data-d="0" style="margin-bottom:6px;">Pro Motocross Championship</div>
+        <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:clamp(22px,2.2vw,42px);color:#fff;letter-spacing:-1px;margin-bottom:14px;" data-a="right" data-d="1">
+          MOTOCROSS <span style="color:var(--neon);">2026</span>
+        </div>
+        <table class="sched-table" data-a="fade" data-d="2" style="font-size:13px;">
+          <thead><tr><th>RD</th><th>DATE</th><th>VENUE</th><th>CITY</th></tr></thead>
+          <tbody>
+            <tr><td><span class="sched-rd">18</span></td><td>May 30</td><td>Fox Raceway National</td><td class="sched-venue">Pala, CA</td></tr>
+            <tr><td><span class="sched-rd">19</span></td><td>Jun 6</td><td>Hangtown Classic</td><td class="sched-venue">Sacramento, CA</td></tr>
+            <tr><td><span class="sched-rd">20</span></td><td>Jun 13</td><td>Thunder Valley National</td><td class="sched-venue">Lakewood, CO</td></tr>
+            <tr><td><span class="sched-rd">21</span></td><td>Jun 20</td><td>High Point National</td><td class="sched-venue">Mount Morris, PA</td></tr>
+            <tr><td><span class="sched-rd">22</span></td><td>Jul 4</td><td>RedBud National</td><td class="sched-venue">Buchanan, MI</td></tr>
+            <tr><td><span class="sched-rd">23</span></td><td>Jul 11</td><td>Southwick National</td><td class="sched-venue">Southwick, MA</td></tr>
+            <tr><td><span class="sched-rd">24</span></td><td>Jul 18</td><td>Spring Creek National</td><td class="sched-venue">Millville, MN</td></tr>
+            <tr><td><span class="sched-rd">25</span></td><td>Jul 25</td><td>Washougal National</td><td class="sched-venue">Washougal, WA</td></tr>
+            <tr><td><span class="sched-rd">26</span></td><td>Aug 15</td><td>Unadilla National</td><td class="sched-venue">New Berlin, NY</td></tr>
+            <tr><td><span class="sched-rd">27</span></td><td>Aug 22</td><td>Budds Creek National</td><td class="sched-venue">Mechanicsville, MD</td></tr>
+            <tr><td><span class="sched-rd">28</span></td><td>Aug 29</td><td>Ironman National</td><td class="sched-venue">Crawfordsville, IN</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Playoffs -->
+        <div style="margin-top:16px;padding:14px 16px;background:rgba(233,252,15,0.05);border:1px solid rgba(233,252,15,0.15);border-radius:4px;" data-a="up" data-d="4">
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:var(--neon);margin-bottom:8px;">SMX PLAYOFFS</div>
+          <div style="display:flex;gap:20px;">
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;color:var(--white);">Sept 12 &mdash; Playoff 1</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:0.15em;">TBA</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;color:var(--white);">Sept 19 &mdash; Playoff 2</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:0.15em;">TBA</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-size:14px;color:var(--white);">Sept 26 &mdash; World Championship Final</div>
+              <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:0.15em;">TBA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 9 — WHAT SPONSORS GET  ██████████████████████ -->
+  <div class="slide" id="s9" style="flex-direction:column;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <div class="slide-content">
+      <div class="neon-line" data-a="left" data-d="0"></div>
+      <div class="eyebrow" data-a="left" data-d="0">Sponsor Activation</div>
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(30px,3.1vw,60px);">WHAT YOU <span>GET</span></div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:clamp(8px,1.2vh,16px);margin-top:clamp(6px,1.2vh,16px);">
+        <!-- Card 1 -->
+        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:12px;" data-a="up" data-d="1">
+          <div style="font-size:32px;">&#127940;</div>
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:0px;">BIKE BRANDING</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;">Your logo on the bike at every round &mdash; visible on TV, in photos, and in the pits. Premium placement available for Official Partners.</div>
+        </div>
+        <!-- Card 2 -->
+        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:12px;" data-a="up" data-d="2">
+          <div style="font-size:32px;">&#128247;</div>
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:0px;">SOCIAL CONTENT</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;">Dedicated posts, stories, and reels featuring your brand. Authentic integration &mdash; not just logo slaps. Race recaps, behind-the-scenes, and lifestyle content.</div>
+        </div>
+        <!-- Card 3 -->
+        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:12px;" data-a="up" data-d="3">
+          <div style="font-size:32px;">&#127909;</div>
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:0px;">TV EXPOSURE</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;">National broadcast coverage on Peacock and NBC. Your brand rides with the only Suzuki in 250 main events &mdash; camera time with zero manufacturer competition.</div>
+        </div>
+        <!-- Card 4 -->
+        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:12px;" data-a="up" data-d="4">
+          <div style="font-size:32px;">&#128170;</div>
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:0px;">PRODUCT INTEGRATION</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;">Your products used and showcased during training, race weekends, and recovery. Real-world demonstration that builds authentic credibility with the audience.</div>
+        </div>
+        <!-- Card 5 -->
+        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:12px;" data-a="up" data-d="5">
+          <div style="font-size:32px;">&#129309;</div>
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:0px;">FAN ENGAGEMENT</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;">Direct interaction with passionate fans in the pits. Professional pit setup provides the perfect backdrop for brand activation, giveaways, and meet-and-greets.</div>
+        </div>
+        <!-- Card 6 -->
+        <div style="background:var(--card);border:1px solid var(--card-border);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:12px;" data-a="up" data-d="6">
+          <div style="font-size:32px;">&#128200;</div>
+          <div style="font-family:'Energon Oblique','Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:0px;">GROWTH OPPORTUNITY</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6;">Partner with a rising athlete on the upswing. Early sponsors ride the growth curve &mdash; better placement, deeper relationships, and the story of being there from the beginning.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ██████████████████████  SLIDE 10 — CLOSING / CONTACT  ██████████████████████ -->
+  <div class="slide" id="s10" style="flex-direction:row;">
+    <div class="neon-stripe"></div>
+    <div class="carbon-bg"></div>
+
+    <!-- Background photo -->
+    <div style="position:absolute;right:0;top:0;width:55%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
+      <img src="Photos/CM-07.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.1;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(6,6,6,1) 0%, rgba(6,6,6,0.7) 40%, rgba(6,6,6,0.5) 100%);"></div>
+    </div>
+
+    <!-- Radial glow -->
+    <div style="position:absolute;top:-150px;right:-80px;width:500px;height:500px;
+      background:radial-gradient(circle, rgba(233,252,15,0.04) 0%, transparent 60%);pointer-events:none;z-index:1;"></div>
+
+    <!-- Left side -->
+    <div class="slide-content">
+      <!-- Number plate -->
+      <div style="margin-bottom:clamp(8px,1.5vh,20px);" data-a="left" data-d="0">
+        <div class="number-plate" style="font-size:48px;padding:6px 22px;">131</div>
+      </div>
+
+      <div class="h1" data-a="left" data-d="1" style="font-size:clamp(36px,3.75vw,72px);margin-bottom:16px;">
+        LET'S<br><span>RIDE.</span>
+      </div>
+
+      <div style="font-family:'Barlow',sans-serif;font-size:16px;color:var(--gray);line-height:1.8;margin-bottom:36px;max-width:460px;" data-a="fade" data-d="2">
+        Whether you're a motocross brand looking for visibility or a company ready to tap into a passionate, loyal audience &mdash; there's a partnership level that works for you. Let's build something together.
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;" data-a="up" data-d="3">
+        <a style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;
+          font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;
+          text-decoration:none;cursor:pointer;
+          background:var(--neon);color:var(--black);
+          clip-path:polygon(0 0, 100% 0, calc(100% - 8px) 100%, 8px 100%);
+          transition:all 0.3s;">
+          BECOME A SPONSOR &#8594;
+        </a>
+        <a style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;
+          font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;
+          text-decoration:none;cursor:pointer;
+          background:rgba(255,255,255,0.06);color:var(--white);border:1px solid rgba(255,255,255,0.12);
+          clip-path:polygon(0 0, 100% 0, calc(100% - 8px) 100%, 8px 100%);
+          transition:all 0.3s;">
+          VIEW SCHEDULE
+        </a>
+      </div>
+    </div>
+
+    <!-- Right side - contact cards -->
+    <div style="width:clamp(280px,25vw,480px);display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.2vh,16px);padding:clamp(16px,2.5vh,80px) clamp(16px,2.5vh,80px) clamp(16px,2.5vh,80px) 0;position:relative;z-index:2;overflow-y:auto;min-height:0;">
+      <!-- Contact card -->
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;
+        background:var(--dark2);border:1px solid var(--card-border);
+        clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+        transition:all 0.4s;" data-a="right" data-d="2">
+        <div style="width:48px;height:48px;flex-shrink:0;
+          background:rgba(233,252,15,0.08);display:flex;align-items:center;justify-content:center;
+          clip-path:polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--neon)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gray);text-transform:uppercase;margin-bottom:4px;">Email</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;">CONTACT FOR DETAILS</div>
+        </div>
+      </div>
+
+      <!-- Social card -->
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;
+        background:var(--dark2);border:1px solid var(--card-border);
+        clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+        transition:all 0.4s;" data-a="right" data-d="3">
+        <div style="width:48px;height:48px;flex-shrink:0;
+          background:rgba(233,252,15,0.08);display:flex;align-items:center;justify-content:center;
+          clip-path:polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--neon)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gray);text-transform:uppercase;margin-bottom:4px;">Instagram</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;">@CROCKETTLMYERS</div>
+        </div>
+      </div>
+
+      <!-- Rider info -->
+      <div style="display:flex;align-items:center;gap:20px;padding:24px 28px;
+        background:var(--dark2);border:1px solid var(--card-border);
+        clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+        transition:all 0.4s;" data-a="right" data-d="4">
+        <div style="width:48px;height:48px;flex-shrink:0;
+          background:rgba(233,252,15,0.08);display:flex;align-items:center;justify-content:center;
+          clip-path:polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--neon)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gray);text-transform:uppercase;margin-bottom:4px;">Athlete</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:1px;">CROCKETT MYERS #131</div>
+        </div>
+      </div>
+
+      <!-- Inquiry note -->
+      <div style="padding:20px 28px;background:var(--dark3);border-left:3px solid var(--neon);margin-top:8px;" data-a="right" data-d="5">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gray);text-transform:uppercase;margin-bottom:6px;">Sponsorship Inquiries</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6;">
+          All tiers are negotiable and customizable. Product-for-trade partnerships also available. Reach out to discuss how we can deliver maximum value for your brand.
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bar -->
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:18px clamp(24px,3.1vw,60px);display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.04);z-index:5;">
+      <div style="display:flex;gap:20px;">
+        <span style="font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gray);text-transform:uppercase;">Crockett Myers #131</span>
+      </div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;">
+        2026 Supercross &amp; Motocross Sponsorship Opportunities
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- ═══════════════════════════════════════════════════ END DECK ═══ -->
+
+<!-- ═══════════════════════════════════════════════════ NAV BAR ═══ -->
+<nav id="nav-bar">
+  <div id="nav-left"><span id="ctr">01 / 11</span></div>
+  <div id="nav-center">
+    <div id="slide-title">COVER</div>
+    <div id="progress-track">
+      <div id="progress-fill" style="width:0%"></div>
+      <div id="progress-dot" style="left:0%"></div>
+      <div id="dots-row">
+        <div class="nav-dot active" onclick="navTo(0)"></div>
+        <div class="nav-dot" onclick="navTo(1)"></div>
+        <div class="nav-dot" onclick="navTo(2)"></div>
+        <div class="nav-dot" onclick="navTo(3)"></div>
+        <div class="nav-dot" onclick="navTo(4)"></div>
+        <div class="nav-dot" onclick="navTo(5)"></div>
+        <div class="nav-dot" onclick="navTo(6)"></div>
+        <div class="nav-dot" onclick="navTo(7)"></div>
+        <div class="nav-dot" onclick="navTo(8)"></div>
+        <div class="nav-dot" onclick="navTo(9)"></div>
+        <div class="nav-dot" onclick="navTo(10)"></div>
+      </div>
+    </div>
+  </div>
+  <div id="nav-right">
+    <button class="nav-arrow" onclick="go(-1)">&#8592;</button>
+    <button class="nav-arrow" onclick="go(1)">&#8594;</button>
+  </div>
+</nav>
+
+<script>
+// ═══════════════════════════════════════ PRELOADER ENGINE
+(function() {
+  const totalArc = 270; // degrees of tach sweep
+  const tickGroup = document.querySelector('.tach-ticks');
+  const cx = 100, cy = 100, r = 88;
+
+  // Generate tick marks around the tach
+  for (let i = 0; i <= 30; i++) {
+    const angle = -135 + (i / 30) * totalArc;
+    const rad = angle * Math.PI / 180;
+    const isMajor = i % 5 === 0;
+    const isRed = i > 25;
+    const inner = r - (isMajor ? 12 : 7);
+    const outer = r - 2;
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', cx + inner * Math.cos(rad));
+    line.setAttribute('y1', cy + inner * Math.sin(rad));
+    line.setAttribute('x2', cx + outer * Math.cos(rad));
+    line.setAttribute('y2', cy + outer * Math.sin(rad));
+    line.setAttribute('class', isRed ? 'tach-tick-red' : (isMajor ? 'tach-tick-major' : 'tach-tick'));
+    tickGroup.appendChild(line);
+  }
+
+  const progress = document.querySelector('.tach-progress');
+  const needle = document.querySelector('.tach-needle-wrap');
+  const redline = document.querySelector('.tach-redline');
+  const barFill = document.getElementById('pre-bar');
+  const barGlow = document.getElementById('pre-bar-glow');
+  const pctEl = document.getElementById('pre-pct');
+  const statusEl = document.getElementById('pre-status');
+  const fullArc = 2 * Math.PI * 88 * (totalArc / 360); // arc length for 270deg
+  const totalDash = 553;
+
+  const statuses = [
+    [0,  'INITIALIZING'],
+    [15, 'LOADING ASSETS'],
+    [35, 'BUILDING TRACK'],
+    [55, 'STAGING GRID'],
+    [75, 'REVVING ENGINE'],
+    [90, 'GATE DROP'],
+    [100,'LETS RIDE']
+  ];
+
+  let pct = 0;
+  const targetPct = 100;
+
+  function updateLoader(p) {
+    // Tach arc
+    const arcOffset = totalDash - (totalDash * (totalArc / 360) * (p / 100));
+    progress.style.strokeDashoffset = arcOffset;
+
+    // Needle rotation: -135deg (0%) to +135deg (100%)
+    const needleAngle = -135 + (p / 100) * totalArc;
+    needle.style.transform = `rotate(${needleAngle}deg)`;
+
+    // Redline glow after 83%
+    if (p > 83) redline.style.opacity = '1';
+
+    // Bar
+    barFill.style.width = p + '%';
+    barGlow.style.left = p + '%';
+
+    // Pct text
+    pctEl.textContent = Math.round(p) + '%';
+
+    // Status text
+    for (let i = statuses.length - 1; i >= 0; i--) {
+      if (p >= statuses[i][0]) { statusEl.textContent = statuses[i][1]; break; }
+    }
+  }
+
+  // Animate with easing — fast start, slower middle, fast finish
+  const startTime = performance.now();
+  const duration = 2800;
+
+  function tick(now) {
+    const elapsed = now - startTime;
+    let t = Math.min(elapsed / duration, 1);
+    // Custom easing: ease-in-out with a slight pause in the middle
+    t = t < 0.5
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    pct = t * targetPct;
+    updateLoader(pct);
+
+    if (t < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      // Hold at 100 briefly, then dismiss
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('done');
+      }, 400);
+    }
+  }
+  requestAnimationFrame(tick);
+})();
+
+// ═══════════════════════════════════════ DECK ENGINE
+const deck = document.getElementById('deck');
+const slides = Array.from(document.querySelectorAll('.slide'));
+const slideTitles = [
+  'COVER', 'THE ATHLETE', 'WHY CROCKETT', '2026 RESULTS',
+  'CAREER RESULTS', 'BROADCAST & REACH', 'SPONSORSHIP TIERS',
+  'TIER COMPARISON', '2026 SCHEDULE', 'WHAT YOU GET', 'LET\'S RIDE'
+];
+const N = slides.length;
+let cur = 0, animating = false;
+
+function resize() {
+  deck.style.height = (window.innerHeight - 52) + 'px';
+}
+
+function resetAnims(slide) {
+  slide.querySelectorAll('[data-a]').forEach(el => {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  });
+}
+
+function show(n, dir) {
+  if (typeof dir === 'undefined') dir = n > cur ? 1 : -1;
+  if (animating || n === cur) return;
+  if (n < 0 || n >= N) return;
+  animating = true;
+  const prev = cur;
+  cur = n;
+
+  const leaveClass = dir > 0 ? 'leaving-left' : 'leaving-right';
+  slides[prev].classList.add(leaveClass);
+  slides[prev].classList.remove('active');
+  setTimeout(() => { slides[prev].classList.remove(leaveClass); }, 450);
+
+  const enterClass = dir > 0 ? 'entering-right' : 'entering-left';
+  slides[cur].classList.add(enterClass);
+  resetAnims(slides[cur]);
+
+  setTimeout(() => {
+    slides[cur].classList.remove(enterClass);
+    slides[cur].classList.add('active');
+    resetAnims(slides[cur]);
+    updateNav();
+    animating = false;
+  }, 50);
+}
+
+function go(d) { show(cur + d, d); }
+function navTo(i) { show(i, i > cur ? 1 : -1); }
+
+function updateNav() {
+  document.getElementById('ctr').textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(N).padStart(2, '0');
+  document.getElementById('slide-title').textContent = slideTitles[cur];
+  const pct = (cur / (N - 1)) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-dot').style.left = pct + '%';
+  document.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  updateVideoVisibility();
+}
+
+document.addEventListener('keydown', e => {
+  if (['ArrowRight', 'ArrowDown', ' '].includes(e.key)) { e.preventDefault(); go(1); }
+  if (['ArrowLeft', 'ArrowUp'].includes(e.key)) { e.preventDefault(); go(-1); }
+});
+
+// Mouse wheel support — one slide per scroll gesture
+let wheelCooldown = false;
+document.addEventListener('wheel', e => {
+  e.preventDefault();
+  if (wheelCooldown || animating) return;
+  wheelCooldown = true;
+  if (e.deltaY > 0) go(1);
+  else if (e.deltaY < 0) go(-1);
+  // Lock out further scrolls until animation completes + buffer
+  setTimeout(() => { wheelCooldown = false; }, 1200);
+}, { passive: false });
+
+// Touch / swipe support
+let touchStartX = 0;
+document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+}, { passive: true });
+
+// Size video iframe to cover full viewport
+function sizeVideo() {
+  const frame = document.getElementById('hero-video');
+  if (!frame) return;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const videoRatio = 16/9;
+  let w, h;
+  if (vw / vh > videoRatio) {
+    w = vw; h = vw / videoRatio;
+  } else {
+    h = vh; w = vh * videoRatio;
+  }
+  // 20% overscale to fully crop YouTube chrome/borders
+  w *= 1.2; h *= 1.2;
+  frame.style.width = Math.ceil(w) + 'px';
+  frame.style.height = Math.ceil(h) + 'px';
+}
+
+// Show/hide viewport video based on current slide
+function updateVideoVisibility() {
+  const wrap = document.getElementById('hero-video-wrap');
+  if (!wrap) return;
+  wrap.style.opacity = cur === 0 ? '1' : '0';
+}
+
+window.addEventListener('resize', () => { resize(); sizeVideo(); });
+resize();
+sizeVideo();
+updateNav();
+</script>
+</body>
+</html>
