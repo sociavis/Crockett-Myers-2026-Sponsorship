@@ -598,12 +598,42 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
   #s8 div[style*="display:flex;gap:20px"] { flex-direction: column !important; gap: 8px !important; }
 
   /* ── S10 Closing ── */
-  #s10 { flex-direction: column !important; }
-  #s10 .slide-content { width: 100% !important; }
-  #s10 > div[style*="width:clamp(280px"] { width: 100% !important; padding: 16px 20px !important; }
+  #s10 { flex-direction: column !important; overflow-y: auto !important; }
+  #s10 .slide-content { width: 100% !important; padding: 20px !important; }
+  /* Hide background photo on mobile — causes overlap */
+  #s10 > div[style*="position:absolute;right:0"] { display: none !important; }
+  /* Hide radial glow */
+  #s10 > div[style*="radial-gradient"] { display: none !important; }
+  /* Right panel: full width, no constrained width */
+  #s10 > div[style*="width:clamp(280px"] {
+    width: 100% !important; padding: 0 20px 20px !important;
+    overflow: visible !important;
+  }
+  /* Contact cards: remove clip-path, simpler styling */
+  #s10 a[style*="clip-path"] {
+    clip-path: none !important; border-radius: 6px !important;
+    padding: 16px 20px !important; gap: 14px !important;
+  }
+  #s10 div[style*="clip-path:polygon(0 0, calc(100% - 6px)"] {
+    clip-path: none !important; border-radius: 4px !important;
+  }
+  /* Buttons stack */
   #s10 div[style*="display:flex;gap:12px"] { flex-direction: column !important; }
-  #s10 div[style*="display:flex;gap:12px"] a { justify-content: center; }
+  #s10 div[style*="display:flex;gap:12px"] a {
+    justify-content: center; clip-path: none !important; border-radius: 4px !important;
+  }
+  /* Body text */
+  #s10 div[style*="margin-bottom:36px"] { margin-bottom: 20px !important; }
+  /* Footer bar: relative, not absolute */
+  #s10 > div[style*="position:absolute;bottom:0"] {
+    position: relative !important; padding: 12px 16px !important;
+    flex-wrap: wrap !important; gap: 6px !important;
+  }
+  #s10 > div[style*="position:absolute;bottom:0"] div { font-size: 9px !important; }
+  /* Logo */
   #s10 img[alt="Myers 131"] { height: 60px !important; }
+  /* Inquiry note */
+  #s10 div[style*="padding:20px 28px;background:var(--dark3)"] { padding: 14px 16px !important; }
 }
 
 /* ═══════════════════════════════════════ PHONE (≤600px) ═══ */
@@ -658,8 +688,23 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
   #s8 div[style*="font-size:14px"] { font-size: 12px !important; }
 
   /* ── S10 Closing ── */
-  #s10 a[style*="clip-path"] { padding: 12px 16px !important; font-size: 13px !important; }
-  #s10 div[style*="padding:20px 28px"] { padding: 12px 14px !important; }
+  #s10 a[style*="clip-path"] { padding: 10px 14px !important; font-size: 12px !important; }
+  #s10 div[style*="font-size:20px"] { font-size: 16px !important; }
+  #s10 div[style*="font-size:16px;color:var(--gray)"] { font-size: 13px !important; margin-bottom: 16px !important; }
+
+  /* ── S2 Athlete: mobile-first layout ── */
+  #s2 .slide-split-left { padding: 14px !important; }
+  /* Quote block: smaller */
+  #s2 blockquote, #s2 div[style*="font-style:italic"] { font-size: 14px !important; }
+  /* Stat boxes: compact 2x2 */
+  #s2 div[style*="display:flex;gap:14px"] {
+    display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px !important;
+  }
+  #s2 .stat-box { padding: 8px 6px !important; text-align: center; }
+  /* Career milestones: tighter */
+  #s2 div[style*="grid-template-columns:1fr 1fr"] { gap: 6px !important; }
+  /* Photo: shorter on phone */
+  #s2 .slide-split-left ~ div { height: 25vh !important; min-height: 140px !important; }
 }
 
 </style>
