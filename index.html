@@ -1609,8 +1609,6 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
         <div class="nav-dot" onclick="navTo(6)"></div>
         <div class="nav-dot" onclick="navTo(7)"></div>
         <div class="nav-dot" onclick="navTo(8)"></div>
-        <div class="nav-dot" onclick="navTo(9)"></div>
-        <div class="nav-dot" onclick="navTo(10)"></div>
       </div>
     </div>
   </div>
@@ -1664,8 +1662,8 @@ const deck = document.getElementById('deck');
 const slides = Array.from(document.querySelectorAll('.slide'));
 const slideTitles = [
   'COVER', 'THE ATHLETE', 'THE OPPORTUNITY', '2026 SEASON',
-  '2025 SEASON', '2024 ROOKIE YEAR', 'BROADCAST & REACH', 'SPONSORSHIP TIERS',
-  'TIER COMPARISON', '2026 SCHEDULE', 'LET\'S RIDE'
+  '2025 SEASON', '2024 ROOKIE YEAR', 'TIER COMPARISON',
+  '2026 SCHEDULE', 'LET\'S RIDE'
 ];
 const N = slides.length;
 let cur = 0, animating = false;
@@ -1735,7 +1733,7 @@ document.addEventListener('wheel', e => {
   if (e.deltaY > 0) go(1);
   else if (e.deltaY < 0) go(-1);
   // Lock out further scrolls until animation completes + buffer
-  setTimeout(() => { wheelCooldown = false; }, 1200);
+  setTimeout(() => { wheelCooldown = false; }, 800);
 }, { passive: false });
 
 // Touch / swipe support
