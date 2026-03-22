@@ -620,6 +620,56 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
   #s4b div[style*="display:flex;gap:clamp"] {
     flex-direction: column !important;
   }
+
+  /* 2026 season: stack stat cards */
+  #s4 div[style*="display:flex;gap:clamp(10px"] {
+    flex-direction: column !important;
+  }
+
+  /* 2024 timeline: stack columns */
+  #s4c div[style*="display:flex;gap:0"] {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  #s4c div[style*="display:flex;gap:0"] > div {
+    border-left: none !important;
+    border-right: none !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+  }
+  /* Hide the horizontal timeline line on mobile */
+  #s4c div[style*="position:absolute;top:16px"] {
+    display: none !important;
+  }
+  /* Hide timeline dots on mobile */
+  #s4c div[style*="position:absolute;top:10px"] {
+    display: none !important;
+  }
+
+  /* Schedule: hide city column to save space */
+  .sched-table .sched-venue { display: none; }
+  .sched-table th:nth-child(4) { display: none; }
+
+  /* Schedule: SMX playoffs stack */
+  #s8 div[style*="display:flex;gap:20px"] {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  /* Closing page: stack left/right */
+  #s10 { flex-direction: column !important; }
+  #s10 > div[style*="width:clamp(280px"] {
+    width: 100% !important;
+    padding: 16px !important;
+  }
+  #s10 .slide-content {
+    width: 100% !important;
+  }
+
+  /* Slide split left full width */
+  .slide-split-left {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -684,6 +734,37 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
 
   /* Hide cursor on touch devices */
   #cur, #cur-ring { display: none !important; }
+
+  /* Tier cards: single column on small phones */
+  #s6 div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Custom callout bar: stack */
+  #s6 div[style*="display:flex;align-items:center;gap:24px"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center;
+  }
+
+  /* Cover bottom bar: hide logos, just show IG */
+  #s1 > div:last-child > div:last-child img {
+    height: 20px !important;
+  }
+
+  /* Schedule tables: even smaller */
+  .sched-table td { font-size: 10px !important; padding: 3px 4px !important; }
+  .sched-table th { font-size: 8px !important; padding: 4px !important; }
+
+  /* Closing page buttons: full width */
+  #s10 div[style*="display:flex;gap:12px"] {
+    flex-direction: column !important;
+  }
+  #s10 div[style*="display:flex;gap:12px"] a {
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 </style>
