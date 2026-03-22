@@ -1717,14 +1717,19 @@ document.addEventListener('keydown', e => {
 
 // Mouse wheel support — one slide per scroll gesture
 let wheelCooldown = false;
+let lastWheelTime = 0;
 document.addEventListener('wheel', e => {
   e.preventDefault();
+  const now = Date.now();
+  // Ignore inertia: small deltas or events too close together
+  if (Math.abs(e.deltaY) < 10) return;
   if (wheelCooldown || animating) return;
+  if (now - lastWheelTime < 1200) return;
   wheelCooldown = true;
+  lastWheelTime = now;
   if (e.deltaY > 0) go(1);
   else if (e.deltaY < 0) go(-1);
-  // Lock out further scrolls until animation completes + buffer
-  setTimeout(() => { wheelCooldown = false; }, 800);
+  setTimeout(() => { wheelCooldown = false; }, 1500);
 }, { passive: false });
 
 // Touch / swipe support
