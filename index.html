@@ -515,9 +515,11 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
     width: 100% !important; padding: 16px 24px !important;
   }
 
-  /* General content padding */
+  /* General content padding + allow scroll on mobile */
+  .slide { overflow-y: auto !important; }
   .slide-content {
     padding: clamp(16px, 2vh, 32px) clamp(16px, 3vw, 32px) !important;
+    overflow: visible !important;
   }
   .slide-content-row {
     padding: clamp(16px, 2vh, 32px) clamp(16px, 3vw, 32px) !important;
@@ -569,6 +571,54 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
 
   /* Number plate */
   .number-plate { font-size: clamp(28px, 8vw, 48px) !important; padding: 6px 18px !important; }
+
+  /* Slide 3: Opportunity cards - stack grids */
+  #s3 div[style*="grid-template-columns:2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #s3 div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Growth story card: stack horizontally to vertically */
+  #s3 div[style*="display:flex;align-items:center;gap"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  #s3 div[style*="border-left:1px solid rgba(233,252,15"] {
+    border-left: none !important;
+    border-top: 1px solid rgba(233,252,15,0.15);
+    padding-left: 0 !important;
+    padding-top: 12px;
+  }
+  /* Credibility strip: stack */
+  #s3 div[style*="justify-content:space-between"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Results slides (s4, s4b, s4c): stack photo + content */
+  #s4 { flex-direction: column !important; }
+  #s4 > div[style*="width:38%"] {
+    width: 100% !important; height: 35vh !important; min-height: 200px;
+  }
+  #s4b { flex-direction: column !important; }
+  #s4c { flex-direction: column !important; }
+  #s4c > div[style*="width:40%"],
+  #s4c > div[style*="width:38%"] {
+    width: 100% !important; height: 35vh !important; min-height: 200px;
+  }
+
+  /* Results stat rows */
+  #s4 div[style*="display:flex;gap"] .stat-box,
+  #s4b div[style*="display:flex;gap"] .stat-box,
+  #s4c div[style*="display:flex;gap"] .stat-box {
+    min-width: 0 !important;
+  }
+
+  /* Results discipline cards: stack */
+  #s4b div[style*="display:flex;gap:clamp"] {
+    flex-direction: column !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -603,6 +653,36 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
 
   /* Featured on: wrap logos */
   .featured-on-card { justify-content: center; }
+
+  /* Slide 3 card numbers: smaller */
+  #s3 div[style*="font-size:clamp(48px"] { font-size: clamp(32px, 10vw, 48px) !important; }
+
+  /* Credibility strip logos: smaller */
+  #s3 div[style*="gap:clamp(16px,2vw,32px)"] img {
+    height: 20px !important;
+  }
+
+  /* Opportunity CTA text: smaller */
+  #s3 div[style*="letter-spacing:clamp(2px"] {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* Results photo strips: shorter on small phones */
+  #s4 > div[style*="width:38%"],
+  #s4c > div[style*="width:40%"],
+  #s4c > div[style*="width:38%"] {
+    height: 28vh !important; min-height: 160px;
+  }
+
+  /* Nav bar: tighter */
+  #nav-bar { padding: 0 12px; height: 44px !important; }
+  .nav-dot { width: 5px; height: 5px; }
+  .nav-arrow { width: 28px; height: 28px; font-size: 14px; }
+  #nav-bar .nav-progress { height: 2px; }
+
+  /* Hide cursor on touch devices */
+  #cur, #cur-ring { display: none !important; }
 }
 
 </style>
