@@ -497,274 +497,169 @@ body.cur-hover #cur-ring { width: 50px; height: 50px; border-color: rgba(233,252
 }
 
 /* ── MOBILE / RESPONSIVE ── */
+/* ═══════════════════════════════════════ TABLET (≤900px) ═══ */
 @media (max-width: 900px) {
-  /* Slide 2: stack vertically */
-  #s2 { flex-direction: column !important; }
-  .slide-split-left {
-    width: 100% !important;
-    padding: clamp(16px, 2vh, 32px) clamp(16px, 3vw, 32px) !important;
-  }
-  #s2 .slide-split-left ~ div {
-    position: relative !important; flex: none !important;
-    width: 100% !important; height: 40vh !important; min-height: 250px;
-  }
-
-  /* Slide 10: stack vertically */
-  #s10 { flex-direction: column !important; }
-  #s10 .slide-content { width: 100% !important; }
-  #s10 .slide-content ~ div {
-    width: 100% !important; padding: 16px 24px !important;
-  }
-
-  /* General content padding + allow scroll on mobile */
+  /* ── Global ── */
   .slide { overflow-y: auto !important; }
   .slide-content {
-    padding: clamp(16px, 2vh, 32px) clamp(16px, 3vw, 32px) !important;
+    padding: 20px 20px 16px !important;
     overflow: visible !important;
+    gap: 12px !important;
   }
   .slide-content-row {
-    padding: clamp(16px, 2vh, 32px) clamp(16px, 3vw, 32px) !important;
+    padding: 20px !important;
     flex-direction: column !important;
     gap: 16px !important;
   }
-
-  /* Stack flex columns */
-  .slide-content > div[style*="display:flex"][style*="gap"] {
-    flex-wrap: wrap;
-  }
-
-  /* Stat boxes row */
-  .stat-box { min-width: 0; }
-
-  /* Tier cards: single column */
-  #s6 div[style*="grid-template-columns:repeat(3"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* What You Get: 2 columns */
-  #s9 div[style*="grid-template-columns:repeat(3"] {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  /* Career milestones: single column */
-  div[style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Hero name smaller */
-  .hero-name { font-size: clamp(36px, 10vw, 80px) !important; }
+  .slide-split-left { width: 100% !important; padding: 20px !important; }
   .h1 { font-size: clamp(24px, 6vw, 48px) !important; }
-
-  /* Nav bar */
-  #nav-bar { padding: 0 16px; gap: 12px; }
-
-  /* Featured on card */
-  .featured-on-card { gap: 10px; padding: 10px 14px; }
-  .featured-on-card img { height: 22px !important; }
-
-  /* Tables: smaller text */
-  .results-table td, .sched-table td, .breakdown-table td {
-    font-size: 11px !important; padding: 4px 6px !important;
-  }
-  .results-table th, .sched-table th, .breakdown-table th {
-    font-size: 9px !important; padding: 6px !important;
-  }
-
-  /* Number plate */
+  .hero-name { font-size: clamp(36px, 10vw, 80px) !important; }
   .number-plate { font-size: clamp(28px, 8vw, 48px) !important; padding: 6px 18px !important; }
+  #nav-bar { padding: 0 16px; gap: 12px; }
+  .featured-on-card { gap: 10px; padding: 10px 14px; flex-wrap: wrap; }
+  .featured-on-card img { height: 22px !important; }
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
 
-  /* Slide 3: Opportunity cards - stack grids */
-  #s3 div[style*="grid-template-columns:2fr 1fr"] {
-    grid-template-columns: 1fr !important;
+  /* ── S1 Cover ── */
+  #s1 .slide-content { justify-content: center !important; }
+  #s1 div[style*="display:flex;gap:32px"] {
+    flex-wrap: wrap !important; gap: 12px !important;
   }
-  #s3 div[style*="grid-template-columns:repeat(3"] {
-    grid-template-columns: 1fr !important;
+  #s1 div[style*="display:flex;gap:32px"] > div {
+    border-left: none !important; padding-left: 0 !important;
   }
-  /* Growth story card: stack horizontally to vertically */
+  #s1 > div:last-child {
+    flex-wrap: wrap !important; height: auto !important;
+    padding: 10px 16px !important; gap: 8px !important;
+  }
+  #s1 > div:last-child img { height: 24px !important; }
+  #s1 a[href*="instagram"] div { font-size: 14px !important; letter-spacing: 1.5px !important; }
+
+  /* ── S2 Athlete ── */
+  #s2 { flex-direction: column !important; }
+  #s2 .slide-split-left ~ div {
+    position: relative !important; flex: none !important;
+    width: 100% !important; height: 35vh !important; min-height: 200px;
+  }
+  #s2 div[style*="display:flex;gap:14px"] { flex-wrap: wrap !important; }
+  #s2 .stat-box { flex: 1 1 calc(50% - 8px) !important; min-width: 0 !important; }
+
+  /* ── S3 Opportunity ── */
+  #s3 div[style*="grid-template-columns:2fr 1fr"] { grid-template-columns: 1fr !important; gap: 12px !important; }
+  #s3 div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; gap: 12px !important; }
   #s3 div[style*="display:flex;align-items:center;gap"] {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+    flex-direction: column !important; align-items: flex-start !important; gap: 12px !important;
   }
   #s3 div[style*="border-left:1px solid rgba(233,252,15"] {
-    border-left: none !important;
-    border-top: 1px solid rgba(233,252,15,0.15);
-    padding-left: 0 !important;
-    padding-top: 12px;
+    border-left: none !important; border-top: 1px solid rgba(233,252,15,0.15);
+    padding-left: 0 !important; padding-top: 12px;
   }
-  /* Credibility strip: stack */
-  #s3 div[style*="justify-content:space-between"] {
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
+  #s3 div[style*="justify-content:space-between"] { flex-direction: column !important; gap: 12px !important; }
+  #s3 div[style*="gap:clamp(16px,2vw,32px)"] { flex-wrap: wrap !important; }
 
-  /* Results slides (s4, s4b, s4c): stack photo + content */
+  /* ── S4 2026 Season ── */
   #s4 { flex-direction: column !important; }
-  #s4 > div[style*="width:38%"] {
-    width: 100% !important; height: 35vh !important; min-height: 200px;
-  }
-  #s4b { flex-direction: column !important; }
-  #s4c { flex-direction: column !important; }
-  #s4c > div[style*="width:40%"],
-  #s4c > div[style*="width:38%"] {
-    width: 100% !important; height: 35vh !important; min-height: 200px;
-  }
+  #s4 > div[style*="width:38%"] { width: 100% !important; height: 30vh !important; min-height: 180px; }
+  #s4 .slide-split-left[style*="width:62%"] { width: 100% !important; }
+  #s4 div[style*="display:flex;gap:clamp(10px"] { flex-direction: column !important; gap: 10px !important; }
+  #s4 div[style*="display:flex;align-items:center;gap:16px"] { flex-wrap: wrap !important; gap: 8px !important; }
 
-  /* Results stat rows */
-  #s4 div[style*="display:flex;gap"] .stat-box,
-  #s4b div[style*="display:flex;gap"] .stat-box,
-  #s4c div[style*="display:flex;gap"] .stat-box {
-    min-width: 0 !important;
+  /* ── S4B 2025 Season ── */
+  #s4b div[style*="display:flex;gap:clamp(16px,2vw,32px)"] {
+    flex-direction: column !important; gap: 14px !important;
   }
+  #s4b div[style*="display:flex;gap:clamp(16px,2vw,32px)"] > div { flex: 1 !important; }
 
-  /* Results discipline cards: stack */
-  #s4b div[style*="display:flex;gap:clamp"] {
-    flex-direction: column !important;
-  }
-
-  /* 2026 season: stack stat cards */
-  #s4 div[style*="display:flex;gap:clamp(10px"] {
-    flex-direction: column !important;
-  }
-
-  /* 2024 timeline: stack columns */
+  /* ── S4C 2024 Rookie ── */
   #s4c div[style*="display:flex;gap:0"] {
-    flex-direction: column !important;
-    gap: 24px !important;
+    flex-direction: column !important; gap: 20px !important;
   }
   #s4c div[style*="display:flex;gap:0"] > div {
-    border-left: none !important;
-    border-right: none !important;
-    padding: 0 !important;
-    padding-top: 0 !important;
+    border-left: none !important; border-right: none !important;
+    padding: 0 !important; padding-top: 0 !important;
   }
-  /* Hide the horizontal timeline line on mobile */
-  #s4c div[style*="position:absolute;top:16px"] {
-    display: none !important;
+  #s4c div[style*="position:absolute;top:16px"] { display: none !important; }
+  #s4c div[style*="position:absolute;top:10px"] { display: none !important; }
+
+  /* ── S6 Tiers ── */
+  #s6 div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; gap: 14px !important; }
+  #s6 div[style*="display:flex;align-items:center;gap:24px"] {
+    flex-direction: column !important; gap: 10px !important; text-align: center;
   }
-  /* Hide timeline dots on mobile */
-  #s4c div[style*="position:absolute;top:10px"] {
-    display: none !important;
+  #s6 div[style*="display:flex;align-items:center;gap:24px"] > div[style*="width:1px"] {
+    width: 60% !important; height: 1px !important;
   }
 
-  /* Schedule: hide city column to save space */
+  /* ── S8 Schedule ── */
   .sched-table .sched-venue { display: none; }
   .sched-table th:nth-child(4) { display: none; }
+  .sched-table td { font-size: 11px !important; padding: 4px 6px !important; }
+  .sched-table th { font-size: 9px !important; padding: 6px !important; }
+  #s8 div[style*="display:flex;gap:20px"] { flex-direction: column !important; gap: 8px !important; }
 
-  /* Schedule: SMX playoffs stack */
-  #s8 div[style*="display:flex;gap:20px"] {
-    flex-direction: column !important;
-    gap: 8px !important;
-  }
-
-  /* Closing page: stack left/right */
+  /* ── S10 Closing ── */
   #s10 { flex-direction: column !important; }
-  #s10 > div[style*="width:clamp(280px"] {
-    width: 100% !important;
-    padding: 16px !important;
-  }
-  #s10 .slide-content {
-    width: 100% !important;
-  }
-
-  /* Slide split left full width */
-  .slide-split-left {
-    width: 100% !important;
-  }
+  #s10 .slide-content { width: 100% !important; }
+  #s10 > div[style*="width:clamp(280px"] { width: 100% !important; padding: 16px 20px !important; }
+  #s10 div[style*="display:flex;gap:12px"] { flex-direction: column !important; }
+  #s10 div[style*="display:flex;gap:12px"] a { justify-content: center; }
+  #s10 img[alt="Myers 131"] { height: 60px !important; }
 }
 
+/* ═══════════════════════════════════════ PHONE (≤600px) ═══ */
 @media (max-width: 600px) {
-  .slide-content {
-    padding: 16px !important;
-  }
-  .slide-content-row {
-    padding: 16px !important;
-  }
-
-  /* What You Get: single column */
-  #s9 div[style*="grid-template-columns"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Stat boxes: 2x2 grid */
-  div[style*="display:flex"][style*="gap:14px"] {
-    flex-wrap: wrap;
-  }
-  .stat-box { flex: 1 1 calc(50% - 8px) !important; min-width: 80px; }
-
-  .hero-name { font-size: clamp(32px, 12vw, 60px) !important; }
-  .h1 { font-size: clamp(22px, 7vw, 36px) !important; }
-
-  /* Cover stats bar */
-  #s1 div[style*="display:flex;gap:32px"] {
-    flex-wrap: wrap; gap: 16px !important;
-  }
-
-  /* Cover bottom bar */
-  #s1 > div:last-child { flex-wrap: wrap; height: auto !important; padding: 12px 16px !important; gap: 8px; }
-
-  /* Featured on: wrap logos */
-  .featured-on-card { justify-content: center; }
-
-  /* Slide 3 card numbers: smaller */
-  #s3 div[style*="font-size:clamp(48px"] { font-size: clamp(32px, 10vw, 48px) !important; }
-
-  /* Credibility strip logos: smaller */
-  #s3 div[style*="gap:clamp(16px,2vw,32px)"] img {
-    height: 20px !important;
-  }
-
-  /* Opportunity CTA text: smaller */
-  #s3 div[style*="letter-spacing:clamp(2px"] {
-    font-size: 11px !important;
-    letter-spacing: 1px !important;
-  }
-
-  /* Results photo strips: shorter on small phones */
-  #s4 > div[style*="width:38%"],
-  #s4c > div[style*="width:40%"],
-  #s4c > div[style*="width:38%"] {
-    height: 28vh !important; min-height: 160px;
-  }
-
-  /* Nav bar: tighter */
-  #nav-bar { padding: 0 12px; height: 44px !important; }
+  /* ── Global ── */
+  .slide-content { padding: 14px 14px 10px !important; gap: 10px !important; }
+  .slide-content-row { padding: 14px !important; }
+  .h1 { font-size: clamp(20px, 7vw, 32px) !important; }
+  .hero-name { font-size: clamp(28px, 12vw, 52px) !important; }
+  .eyebrow { font-size: 9px !important; letter-spacing: 2px !important; }
+  .stat-num { font-size: clamp(20px, 6vw, 32px) !important; }
+  .stat-label { font-size: 9px !important; }
+  #nav-bar { padding: 0 10px; height: 44px !important; }
   .nav-dot { width: 5px; height: 5px; }
   .nav-arrow { width: 28px; height: 28px; font-size: 14px; }
-  #nav-bar .nav-progress { height: 2px; }
-
-  /* Hide cursor on touch devices */
   #cur, #cur-ring { display: none !important; }
 
-  /* Tier cards: single column on small phones */
-  #s6 div[style*="grid-template-columns:repeat(3"] {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
+  /* ── S1 Cover ── */
+  #s1 div[style*="display:flex;gap:32px"] { gap: 10px !important; }
+  #s1 > div:last-child { padding: 8px 12px !important; gap: 6px !important; }
+  #s1 > div:last-child img { height: 18px !important; }
+  #s1 a[href*="instagram"] div { font-size: 12px !important; letter-spacing: 1px !important; }
 
-  /* Custom callout bar: stack */
-  #s6 div[style*="display:flex;align-items:center;gap:24px"] {
-    flex-direction: column !important;
-    gap: 12px !important;
-    text-align: center;
-  }
+  /* ── S2 Athlete ── */
+  #s2 .slide-split-left ~ div { height: 28vh !important; min-height: 160px; }
+  .stat-box { flex: 1 1 calc(50% - 6px) !important; min-width: 0 !important; padding: 8px !important; }
+  .featured-on-card { justify-content: center; gap: 6px !important; padding: 8px 10px !important; }
+  .featured-on-card img { height: 18px !important; }
 
-  /* Cover bottom bar: hide logos, just show IG */
-  #s1 > div:last-child > div:last-child img {
-    height: 20px !important;
-  }
+  /* ── S3 Opportunity ── */
+  #s3 div[style*="font-size:clamp(48px"] { font-size: clamp(28px, 10vw, 40px) !important; }
+  #s3 div[style*="gap:clamp(16px,2vw,32px)"] img { height: 18px !important; }
+  #s3 div[style*="letter-spacing:clamp(2px"] { font-size: 10px !important; letter-spacing: 1px !important; }
 
-  /* Schedule tables: even smaller */
+  /* ── S4 2026 Season ── */
+  #s4 > div[style*="width:38%"] { height: 25vh !important; min-height: 140px; }
+  #s4 div[style*="bottom:clamp"] { gap: 6px !important; }
+  #s4 div[style*="bottom:clamp"] div { font-size: 11px !important; padding: 5px 10px !important; }
+
+  /* ── S4C 2024 ── */
+  #s4c img[alt*="Arenacross"] { height: 28px !important; }
+  #s4c img[alt*="Supercross"] { height: 28px !important; }
+  #s4c img[alt*="Pro Motocross"] { height: 24px !important; }
+
+  /* ── S6 Tiers ── */
+  .tier-card { margin-bottom: 0 !important; }
+  .tier-perks li { font-size: 12px !important; }
+
+  /* ── S8 Schedule ── */
   .sched-table td { font-size: 10px !important; padding: 3px 4px !important; }
   .sched-table th { font-size: 8px !important; padding: 4px !important; }
+  #s8 div[style*="font-size:14px"] { font-size: 12px !important; }
 
-  /* Closing page buttons: full width */
-  #s10 div[style*="display:flex;gap:12px"] {
-    flex-direction: column !important;
-  }
-  #s10 div[style*="display:flex;gap:12px"] a {
-    text-align: center;
-    justify-content: center;
-  }
+  /* ── S10 Closing ── */
+  #s10 a[style*="clip-path"] { padding: 12px 16px !important; font-size: 13px !important; }
+  #s10 div[style*="padding:20px 28px"] { padding: 12px 14px !important; }
 }
 
 </style>
