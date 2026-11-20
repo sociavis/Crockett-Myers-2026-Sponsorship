@@ -1,11 +1,11 @@
 {
-  "name": "Crockett Myers #131 — 2026 Sponsorship",
-  "short_name": "CM #131",
+  "name": "Crockett Myers #84 — 2027 Supercross Sponsorship",
+  "short_name": "CM #84",
   "icons": [
-    { "src": "/favicons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/favicons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "favicons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "favicons/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ],
-  "theme_color": "#E9FC0F",
+  "theme_color": "#060606",
   "background_color": "#060606",
   "display": "standalone"
 }
